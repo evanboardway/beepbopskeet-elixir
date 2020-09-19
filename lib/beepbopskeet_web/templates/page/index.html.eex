@@ -1,0 +1,139 @@
+<div class="container max-w-screen-lg bg-white shadow-sm">
+
+  <div class="flex flex-col items-center justify-center h-screen motion-safe:animate-fadeIn">
+    <img class="h-64 rounded-full mb-16" src="<%= Routes.static_path(@conn, "/images/anime_avatar.jpg") %>"></img>
+    <h1 class="tracking-widest text-6xl mb-20">BEEPBOPSKEET</h1>
+    <hr class="w-3/5 my-2">
+    <h2 class="tracking-widest text-center text-6xl my-20">Anime Fan + Content Creator</h2>
+  </div>
+
+
+
+  <div class="flex flex-col items-center my-24 py-24 bg-gray-100">
+    <button class="socials-link bg-blue-200 my-5 w-full md:w-3/4">
+      <img src="<%= Routes.static_path(@conn, "/images/icons/kofi.png") %>"></img>
+      <a href="https://ko-fi.com/beepbopskeet">
+        <h1 class="tracking-widest text-2xl">SUPPORT ME ON KO-FI</h1>
+      </a>
+    </button>
+
+    <button class="socials-link bg-blue-200 my-5 w-full md:w-3/4" href="">
+      <img src="<%= Routes.static_path(@conn, "/images/icons/amazon-icon-logo.png") %>"></img>
+      <a href="https://www.amazon.com/hz/wishlist/ls/AV3GQV649N4M?ref_=wl_share">
+        <h1 class="tracking-widest text-2xl">MY AMAZON WISHLIST</h1>
+      </a>
+    </button>
+
+    <button class="socials-link bg-blue-200 my-5 w-full md:w-3/4" href="">
+      <img src="<%= Routes.static_path(@conn, "/images/icons/youtube-icon.png") %>"></img>
+      <a href="https://www.youtube.com/channel/UCrDnHHlWsRSU_-3uJjSHn5Q">
+        <h1 class="tracking-widest text-2xl">YOUTUBE CHANNEL</h1>
+      </a>
+    </button>
+  </div>
+
+
+  <div class="flex flex-col h-screen items-center justify-center">
+    <img class="w-64 rounded-full my-16" src="<%= Routes.static_path(@conn, "/images/personal.jpg") %>"></img>
+    <h1 class="tracking-widest text-6xl mb-20">ABOUT ME</h1>
+    <hr class="w-1/2 mb-6">
+    <h2 class="my-10 tracking-widest text-4xl mb-2">CARMEN</h2>
+    <h2 class="my-10 tracking-widest text-4xl mb-2">SHE / HER</h2>
+    <h2 class="my-10 tracking-widest text-4xl mb-2">21 Y/O</h2>
+    <h2 class="my-10 tracking-widest text-4xl mb-2">ANIME / KPOP</h2>
+  </div>
+
+
+  <div class="discounts">
+
+    <button class="socials-link bg-purple-200 w-full md:w-3/4">
+      <img src="<%= Routes.static_path(@conn, "/images/icons/shop.png") %>"></img>
+      <a href="https://ko-fi.com/beepbopskeet">
+        <h1 class="tracking-widest text-2xl">SHOP THE COLDEST WATER</h1>
+      </a>
+    </button>
+    <div class="socials-link w-full md:w-3/4">
+      <h1 class="tracking-widest text-2xl">USE CODE "BEEP" FOR 10% OFF</h1>
+    </div>
+
+    <button class="socials-link bg-purple-200 w-full md:w-3/4">
+      <img src="<%= Routes.static_path(@conn, "/images/icons/shop.png") %>"></img>
+      <a href="https://ko-fi.com/beepbopskeet">
+        <h1 class="tracking-widest text-2xl">MISAKY TOKYO-JAPANESE SWEETS</h1>
+      </a>
+    </button>
+    <div class="socials-link w-full md:w-3/4">
+      <h1 class="tracking-widest text-2xl">USE CODE "CARMEN" FOR 5% OFF</h1>
+    </div>
+
+    <button class="socials-link bg-purple-200 w-full md:w-3/4">
+      <img src="<%= Routes.static_path(@conn, "/images/icons/shop.png") %>"></img>
+      <a href="https://ko-fi.com/beepbopskeet">
+        <h1 class="tracking-widest text-2xl">TTDEYE COLORED CONTACTS</h1>
+      </a>
+    </button>
+    <div class="socials-link w-full md:w-3/4">
+      <h1 class="tracking-widest text-2xl">USE CODE "BEEPBOPSKEET" FOR 10% OFF</h1>
+    </div>
+
+  </div>
+
+
+
+  <div class="flex flex-col py-10">
+    <div class="flex flex-row flex-wrap justify-evenly">
+      <div class="tiktok">
+        <a href="https://www.tiktok.com/@beepbopskeet/video/6872805301452573957">
+          <img src="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/7520725a6c9e7fc4fc1c3f8a6774c6f6?x-expires=1600372800&x-signature=4ZIjvukGfK8xeaAO6y7MQ882v9Y%3D"></img>
+        </a>
+          <div class="flex flex-row flex-wrap">
+            <a target="_blank" title="@beepbopskeet" href="https://www.tiktok.com/@beepbopskeet">@beepbopskeet</a>
+            <p>try again 😈😈 <a title="anime" target="_blank" href="https://www.tiktok.com/tag/anime">##anime</a>
+              <a title="weeb" target="_blank" href="https://www.tiktok.com/tag/weeb">##weeb</a>
+              <a title="demonslayer" target="_blank" href="https://www.tiktok.com/tag/demonslayer">##demonslayer</a>
+              <a title="tanjiro" target="_blank" href="https://www.tiktok.com/tag/tanjiro">##tanjiro</a>
+              <a title="animemerch" target="_blank" href="https://www.tiktok.com/tag/animemerch">##animemerch</a>
+            </p>
+            <a target="_blank" title="♬ original sound - beepbopskeet" href="https://www.tiktok.com/music/original-sound-6872805243961232133">♬ original sound - beepbopskeet</a>
+          </div>
+      </div>
+
+      <div class="tiktok">
+        <a href="https://www.tiktok.com/@beepbopskeet/video/6872539553119407366">
+          <img src="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/cbf158ff64b21fc2c3da3092a78fdf57?x-expires=1600390800&x-signature=Oa3Dnoc%2FWI6WyROxECVrVGkIN6Q%3D"></img>
+        </a>
+          <div class="flex flex-row flex-wrap">
+            <a target="_blank" title="@beepbopskeet" href="https://www.tiktok.com/@beepbopskeet">@beepbopskeet</a>
+              <p>what’s the other 1%? <a title="denki" target="_blank" href="https://www.tiktok.com/tag/denki">##denki</a>
+              <a title="aizawa" target="_blank" href="https://www.tiktok.com/tag/aizawa">##aizawa</a>
+              <a title="mha" target="_blank" href="https://www.tiktok.com/tag/mha">##mha</a>
+              <a title="bnha" target="_blank" href="https://www.tiktok.com/tag/bnha">##bnha</a>
+              <a title="anime" target="_blank" href="https://www.tiktok.com/tag/anime">##anime</a>
+              <a title="weeb" target="_blank" href="https://www.tiktok.com/tag/weeb">##weeb</a>
+            </p>
+            <a target="_blank" title="♬ original sound - nwarmy" href="https://www.tiktok.com/music/original-sound-6790529650012883717">♬ original sound - nwarmy</a>
+          </div>
+      </div>
+
+      <div class="tiktok">
+        <a href="https://www.tiktok.com/@beepbopskeet/video/6872440604664597766">
+          <img src="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/1dfad88c37be4c44b4a86c0111132763?x-expires=1600390800&x-signature=jndh14oDHZq9ArpZWlJGZC6yzxQ%3D"></img>
+        </a>
+        <div class="flex flex-row flex-wrap">
+          <a target="_blank" title="@beepbopskeet" href="https://www.tiktok.com/@beepbopskeet">@beepbopskeet</a>
+          <p>a little ✨uncomfy✨  <a title="ohshc" target="_blank" href="https://www.tiktok.com/tag/ohshc">#ohshc</a>
+            <a title="anime" target="_blank" href="https://www.tiktok.com/tag/anime">#anime</a>
+            <a title="hikaruandkaoru" target="_blank" href="https://www.tiktok.com/tag/hikaruandkaoru">#hikaruandkaoru</a>
+            <a title="ouranhighschoolhostclub" target="_blank" href="https://www.tiktok.com/tag/ouranhighschoolhostclub">#ouranhighschoolhostclub</a>
+          </p>
+          <a target="_blank" title="♬ Friends Ross is Fine - tbsnetwork" href="https://www.tiktok.com/music/Friends-Ross-is-Fine-6863113666494024454">♬ Friends Ross is Fine - tbsnetwork</a>
+        </div>
+      </div>
+    </div>
+    <button href="https://www.tiktok.com/@beepbopskeet" class="more-button mx-auto mt-4">See More</button>
+  </div>
+
+
+</div>
+
+<%# the tiktok pages should be a view %>

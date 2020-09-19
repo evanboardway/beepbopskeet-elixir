@@ -1,0 +1,40 @@
+<nav class="flex flex-row items-center justify-between md:justify-evenly flex-wrap p-3 bg-gray-100">
+  <div class="md:bg-blue-100 md:shadow-md rounded-full flex flex-no-shrink text-grey-darkest items-center mr-6 p-2">
+    <a class="flex flex-row items-center" href="/">
+      <img class="h-12 rounded-full " src="<%= Routes.static_path(@conn, "/images/anime_avatar.jpg") %>"></img>
+      <span class="font-semibold text-xl tracking-widest mx-5">BEEPBOPSKEET</span>
+    </a>
+  </div>
+  <div class="block md:hidden">
+    <button class="flex items-center px-3 py-2 border-none rounded text-grey-darkest border-grey-darkest" onclick="navbarAccordian()">
+      <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+    </button>
+  </div>
+  <div class="hidden w-full block md:flex md:items-center md:w-auto md:my-0 my-5" id="nav">
+    <div class="text-sm md:flex-grow">
+    </div>
+    <div class="flex flex-row justify-between mx-4">
+      <div class="md:hover:bg-blue-200 rounded-lg my-auto">
+        <a href="https://www.tiktok.com/@beepbopskeet" class="block my-2 md:inline-block md:my-0 text-grey-darkest mx-2 md:mx-10 no-underline tracking-widest text-xl">
+          TIKTOK
+        </a>
+      </div>
+      <div class="md:hover:bg-blue-200 rounded-lg">
+        <a href="https://www.instagram.com/beepbopskeet" class="block my-2 md:inline-block md:my-0 text-grey-darkest mx-2 md:mx-10 no-underline tracking-widest text-xl">
+          INSTAGRAM
+        </a>
+      </div>
+      <div class="bg-gray-200 md:hover:bg-blue-200 rounded-lg">
+        <a href="/playlists" class="block my-2 md:inline-block md:my-0 text-grey-darkest mx-2 md:mx-10 no-underline tracking-widest text-xl">
+          SPOTIFY PLAYLISTS
+        </a>
+      </div>
+    </div>
+  </div>
+  <script>
+    function navbarAccordian() {
+    var x = document.getElementById("nav");
+    x.classList.toggle("hidden");
+    }
+  </script>
+</nav>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title><%= assigns[:page_title] || "hey loves · beepbopskeet" %></title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+    <%= csrf_meta_tag() %>
+  </head>
+  <body>
+    <%= render "navigation.html", conn: @conn %>
+    <main role="main" class="bg-gradient-to-r from-teal-100 via-white to-blue-100">
+      <p class="alert bg-blue-lightest border border-blue-light text-blue-dark px-4 py-3 rounded relative" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert bg-red-lightest border border-red-light text-red-dark px-4 py-3 rounded relative" role="alert"><%= get_flash(@conn, :error) %></p>
+      <%= render @view_module, @view_template, assigns %>
+    </main>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+  <footer>
+    <%= render "footer.html", conn: @conn %>
+  </footer>
+</html>

@@ -1,0 +1,70 @@
+@import "./phoenix.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.alert:empty {
+    display: none;
+}
+
+.dark-white {
+    background-color: rgba(255, 255, 255, 0.929);
+}
+
+.embeded-tik-tok {
+    max-width: 400px;
+}
+
+.tiktok {
+    @apply rounded-lg;
+    padding: 1rem;
+    max-width: 300px;
+    margin: 10px;
+    @apply bg-gray-100;
+}
+
+.tiktok img {
+    max-width: 250px;
+    @apply mx-auto;
+}
+
+.more-button {
+    background-color: lightcoral;
+    @apply py-2;
+    @apply px-4;
+    @apply text-xl;
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+    @apply rounded-md;
+    @apply text-white;
+}
+
+.merch {
+    height: 150;
+    padding: 5px;
+    margin: 15px;
+    @apply bg-gray-100;
+    @apply shadow-md;
+}
+
+.socials-link {
+    height: 75px;
+    @apply flex;
+    @apply flex-row;
+    @apply items-center;
+    @apply justify-center;
+}
+.socials-link img {
+    @apply m-4;
+    @apply h-8;
+}
+
+.discounts {
+    @apply flex;
+    @apply flex-col;
+    @apply items-center;
+    @apply my-24;
+    @apply py-24;
+    @apply bg-gray-100;
+}
