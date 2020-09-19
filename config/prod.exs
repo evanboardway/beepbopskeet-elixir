@@ -24,12 +24,13 @@ config :logger, level: :info
     config :beepbopskeet, BeepbopskeetWeb.Endpoint,
       ...
       url: [host: "example.com", port: 443],
-      http: [
-        port: {:system, "PORT"}],
-        url: [scheme: "https", host: "beepbopskeet.herokuapp.com",
-        port: 443
-       ],
-      force_ssl: [rewrite_on: [:x_forwarded_proto]],
+      https: [
+        port: 443,
+        cipher_suite: :strong,
+        keyfile: System.get_env("SOME_APP_SSL_KEY_PATH"),
+        certfile: System.get_env("SOME_APP_SSL_CERT_PATH"),
+        transport_options: [socket_opts: [:inet6]]
+      ]
 #
 # The `cipher_suite` is set to `:strong` to support only the
 # latest and more secure SSL ciphers. This means old browsers
