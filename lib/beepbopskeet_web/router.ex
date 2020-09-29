@@ -18,6 +18,13 @@ defmodule BeepbopskeetWeb.Router do
 
     get "/", PageController, :index
     get "/playlists", PageController, :spotify_playlists
+    get "/admin", PageController, :admin_portal
+
+    resources "/users", UserController, only: [:create, :new]
+
+    get "/sign-in", SessionController, :new
+    post "/sign-in", SessionController, :create
+    delete "/sign-in", SessionController, :delete
   end
 
   # Other scopes may use custom stacks.

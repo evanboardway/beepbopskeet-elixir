@@ -41,6 +41,8 @@ defmodule BeepbopskeetWeb do
 
       import BeepbopskeetWeb.ErrorHelpers
       import BeepbopskeetWeb.Gettext
+      import BeepbopskeetWeb.Helpers.Auth
+
       alias BeepbopskeetWeb.Router.Helpers, as: Routes
     end
   end
