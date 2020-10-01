@@ -4,13 +4,11 @@ defmodule BeepbopskeetWeb.SessionController do
   alias Beepbopskeet.Accounts
 
   def new(conn, _params) do
-    IO.puts("new")
     render(conn, "new.html")
 
   end
 
   def create(conn, %{"session" => auth_params}) do
-    IO.puts("create")
 
     user = Accounts.get_by_username(auth_params["username"])
 
@@ -29,7 +27,6 @@ defmodule BeepbopskeetWeb.SessionController do
   end
 
   def delete(conn, _params) do
-    IO.puts("delete")
 
     conn
     |> delete_session(:current_user_id)

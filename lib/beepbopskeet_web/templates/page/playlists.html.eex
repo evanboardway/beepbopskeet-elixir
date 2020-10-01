@@ -1,3 +1,29 @@
-<div class="container max-w-screen-lg bg-white shadow-sm h-screen">
-    <h1 class="tracking-widest text-6xl py-10 flex flex-row justify-center">PLAYLISTS</h1>
+<div class="container max-w-screen-lg bg-gray-100 shadow-sm">
+    <h1 class="tracking-widest text-gray-900 text-6xl py-10 flex flex-row justify-center">PLAYLISTS</h1>
+
+    <div class="flex flex-row justify-evenly flex-wrap">
+
+
+
+        <%= for playlist <- @playlists do %>
+            <div class="flex flex-col bg-gray-500 m-4 shadow-md hover:shadow-2xl rounded-lg">
+                <div class="flex flex-row justify-center items-center">
+                    <h2 class="text-center absolute tracking-widest text-gray-100 text-opacity-100 text-4xl font-bold rounded-md shadow-inner"><%= playlist.name %></h2>
+                    <img class="rounded-t-lg" style="width: 300px; height: 300px;" src="<%= playlist.url %>" />
+                </div>
+                <div class="flex flex-row">
+                    <button class="w-1/2 py-6 bg-green-300 text-green-800 tracking-widest">
+                        <a href="">SUBMIT</a>
+                    </button>
+                    <button class="w-1/2 py-6 bg-blue-300 text-blue-800 tracking-widest">
+                        <a href="<%= playlist.external_urls.spotify %>">OPEN</a>
+                    </button>
+                </div>
+            </div>
+
+        <% end %>
+
+
+    </div>
+
 </div>

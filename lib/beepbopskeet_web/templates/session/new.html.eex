@@ -1,5 +1,5 @@
 <div class="container h-screen bg-white flex flex-col justify-center items-center">
-    <div class="flex flex-col items-center justify-center bg-gray-100 shadow-md w-full md:w-2/3">
+    <div class="flex flex-col items-center justify-center bg-gray-100 shadow-md w-4/5 md:w-2/3 motion-safe:animate-fadeIn">
         <h1 class="font-semibold text-4xl tracking-widest mx-5 my-16">ADMIN PORTAL</h1>
         <%= form_for @conn, Routes.session_path(@conn, :new), [as: :session], fn f -> %>
             <div class="flex flex-col">

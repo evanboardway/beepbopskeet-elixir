@@ -1,5 +1,50 @@
 <div class="container h-screen max-w-screen-lg bg-white shadow-sm">
+    <div class="flex flex-col items-center">
+    <%# top nav for filter %>
 
-    <h1>Place to view admin stuff</h1>
 
+        <div class="flex flex-row flex-wrap items-center justify-between bg-gray-200 py-4 w-4/5 my-12">
+            <span class="text-gray-800 mx-4 text-xl tracking-wide font-bold">FILTER</span>
+            <div class="flex flex-row">
+                <span class="text-gray-800 mx-4 text-xl tracking-wide">INCOMING</span>
+                <span class="text-gray-800 mx-4 text-xl tracking-wide">ACCEPTED</span>
+                <span class="text-gray-800 mx-4 text-xl tracking-wide">ACTIVE</span>
+            </div>
+        </div>
+
+
+        <div class="flex flex-row flex-wrap rounded-lg w-4/5 bg-gray-800 m-4 p-4 justify-between">
+
+            <div class="flex flex-col">
+                <div class="flex flex-row flex-wrap items-center">
+                    <span class="text-gray-100 tracking-wide mx-8">NAME</span>
+                    <span class="text-gray-100 tracking-wide mx-8">EMAIL</span>
+                    <span class="text-gray-100 tracking-wide mx-8">PLAYLIST</span>
+                    <span class="text-gray-100 tracking-wide mx-8">RELEASE DATE</span>
+                </div>
+                <a href=""><span class="text-gray-400 tracking-wide mx-8">LINK TO TRACK</span></a>
+            </div>
+
+            <div class="flex flex-row">
+                <button class="bg-green-300 px-4 py-2 m-2 rounded-md">+</button>
+                <button class="bg-red-300 px-4 py-2 m-2 rounded-md">x</button>
+            </div>
+
+        </div>
+
+
+    </div>
 </div>
+
+
+<%# should I do admin as a live page same thing with playlists%>
+
+<%# admin page should have tabs: incoming, accepted, active %>
+<%# Incoming shows the new requests %>
+<%# Accepted shows the songs that you accepted but havent added to the playlist yet %>
+<%# Active shows the sogns that are currently active. %>
+
+<%# For the spotify auth should I just authenticate her account or should I auth people as they try to enter the
+playlist view and then auth her for the admin view?%>
+
+<%# status payment %>

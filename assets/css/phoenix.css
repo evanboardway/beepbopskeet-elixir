@@ -55,7 +55,6 @@ select {
 /* Alerts and form errors */
 .alert {
   padding: 5px;
-  margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
 }
