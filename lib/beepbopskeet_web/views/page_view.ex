@@ -8,6 +8,13 @@ defmodule BeepbopskeetWeb.PageView do
 
   def keys_to_atoms(value), do: value
 
+  def new_submission_params(playlist) do
+    %{
+      playlist_id: playlist.id,
+      image_url: playlist.url
+    }
+  end
+
 
 end
 

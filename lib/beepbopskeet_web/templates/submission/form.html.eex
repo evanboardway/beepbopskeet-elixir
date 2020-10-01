@@ -1,0 +1,38 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger my-5">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+
+  <div class="flex flex-col justify-evenly flex-wrap">
+
+      <h1 class="tracking-wide">FIRST NAME</h1>
+      <%= text_input f, :first_name, class: "rounded-lg py-2 my-4" %>
+      <%= error_tag f, :first_name %>
+
+      <h1 class="tracking-wide">LAST NAME</h1>
+      <%= text_input f, :last_name, class: "rounded-lg py-2 my-4" %>
+      <%= error_tag f, :last_name %>
+
+      <h1 class="tracking-wide">EMAIL</h1>
+      <%= text_input f, :email, class: "rounded-lg py-2 my-4" %>
+      <%= error_tag f, :email %>
+
+      <h1 class="tracking-wide">URL</h1>
+      <%= text_input f, :url, class: "rounded-lg py-2 my-4" %>
+      <%= error_tag f, :url %>
+
+      <h1 class="tracking-wide my-4">RELEASE DATE</h1>
+      <%= datetime_select f, :release_date, class: "rounded-lg py-2 my-4" %>
+      <%= error_tag f, :release_date %>
+
+
+  </div>
+
+    <div>
+      <button><%= submit "SUBMIT", class: "bg-red-200 px-4 py-2 my-4 flex rounded-lg" %></button>
+    </div>
+
+<% end %>

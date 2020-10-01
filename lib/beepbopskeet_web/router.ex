@@ -25,6 +25,13 @@ defmodule BeepbopskeetWeb.Router do
     get "/sign-in", SessionController, :new
     post "/sign-in", SessionController, :create
     delete "/sign-in", SessionController, :delete
+
+    get "/submissions/new/:playlist_id/:playlist_name", SubmissionController, :new
+    post "/submissions", SubmissionController, :create
+
+    #esources "/submissions", SubmissionsController, only: [:index, :create, :delete]
+
+
   end
 
   # Other scopes may use custom stacks.
