@@ -9,6 +9,10 @@ defmodule BeepbopskeetWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :admin do
+    plug BeepbopskeetWeb.Plug.Admin
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -18,20 +22,23 @@ defmodule BeepbopskeetWeb.Router do
 
     get "/", PageController, :index
     get "/playlists", PageController, :spotify_playlists
-    get "/admin", PageController, :admin_portal
-
-    resources "/users", UserController, only: [:create, :new]
 
     get "/sign-in", SessionController, :new
     post "/sign-in", SessionController, :create
     delete "/sign-in", SessionController, :delete
 
-    get "/submissions/new/:playlist_id/:playlist_name", SubmissionController, :new
-    post "/submissions", SubmissionController, :create
+    resources "/submissions/:playlist_id", SubmissionController, except: [:delete, :update, :index, :show, :edit]
 
-    #esources "/submissions", SubmissionsController, only: [:index, :create, :delete]
+  end
 
+  scope "/", BeepbopskeetWeb do
+    pipe_through [:browser, :admin]
 
+    get "/admin", PageController, :admin_portal
+    delete "/submissions/:id", SubmissionController, :delete
+    patch "/submissions/:id", SubmissionController, :update
+    put "/submissions/:id", SubmissionController, :update
+    resources "/users", UserController, only: [:create, :new]
   end
 
   # Other scopes may use custom stacks.

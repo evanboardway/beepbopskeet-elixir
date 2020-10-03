@@ -20,7 +20,7 @@ defmodule Beepbopskeet.MixProject do
   def application do
     [
       mod: {Beepbopskeet.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :bamboo]
     ]
   end
 
@@ -46,6 +46,7 @@ defmodule Beepbopskeet.MixProject do
       {:bcrypt_elixir, "~> 1.0"},
       {:httpoison, "~> 1.6"},
       {:poison, "~> 4.0"},
+      {:bamboo, "~> 1.5"},
       {:plug_cowboy, "~> 2.0"}
     ]
   end

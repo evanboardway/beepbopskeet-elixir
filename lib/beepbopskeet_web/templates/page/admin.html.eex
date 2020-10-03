@@ -3,48 +3,117 @@
     <%# top nav for filter %>
 
 
-        <div class="flex flex-row flex-wrap items-center justify-between bg-gray-200 py-4 w-4/5 my-12">
+        <div class="flex flex-row flex-wrap items-center justify-between bg-gray-200 rounded-lg py-4 w-4/5 mt-12 mb-2">
             <span class="text-gray-800 mx-4 text-xl tracking-wide font-bold">FILTER</span>
             <div class="flex flex-row">
-                <span class="text-gray-800 mx-4 text-xl tracking-wide">INCOMING</span>
-                <span class="text-gray-800 mx-4 text-xl tracking-wide">ACCEPTED</span>
-                <span class="text-gray-800 mx-4 text-xl tracking-wide">ACTIVE</span>
+                <button class="text-gray-800 bg-gray-300 px-2 py-1 rounded-md mx-4 text-xl tracking-wide" onclick="showIncoming()">INCOMING</button>
+                <button class="text-gray-800 bg-gray-300 px-2 py-1 rounded-md mx-4 text-xl tracking-wide" onclick="showActive()">ACTIVE</button>
             </div>
         </div>
 
-
-        <div class="flex flex-row flex-wrap rounded-lg w-4/5 bg-gray-800 m-4 p-4 justify-between">
-
-            <div class="flex flex-col">
-                <div class="flex flex-row flex-wrap items-center">
-                    <span class="text-gray-100 tracking-wide mx-8">NAME</span>
-                    <span class="text-gray-100 tracking-wide mx-8">EMAIL</span>
-                    <span class="text-gray-100 tracking-wide mx-8">PLAYLIST</span>
-                    <span class="text-gray-100 tracking-wide mx-8">RELEASE DATE</span>
+        <div id="incoming" class="w-4/5">
+            <%= for submission <- incoming() do %>
+                <div class="flex flex-row justify-between flex-wrap items-center p-2 my-1 rounded-lg bg-gray-800">
+                    <div class="flex flex-col items-start">
+                        <div class="flex flex-row w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">NAME:</span>
+                            <span class="text-orange-300 tracking-wide mx-2"><%= submission.first_name %> <%= submission.last_name %> </span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">EMAIL:</span>
+                            <span class="text-orange-300 tracking-wide mx-2"><%= submission.email %></span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">LINK:</span>
+                            <span class="text-orange-500 underline tracking-wide mx-2"><a href="<%= submission.url %>" target="_blank"><%= submission.url %></a></span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">PLAYLIST:</span>
+                            <span class="text-red-500 tracking-wide mx-2"><%= get_playlist_name(submission.playlist_id) %></span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">RELEASE DATE:</span>
+                            <span class="text-orange-300 tracking-wide mx-2"><%= submission.release_date %></span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">STATUS:</span>
+                            <span class="text-blue-500 tracking-wide mx-2"><%= submission.status %></span>
+                        </div>
+                    </div>
+                    <div class="flex flex-row mx-auto md:mx-4 my-4">
+                        <button class="text-green-800 text-2xl bg-green-400 h-16 w-16 rounded-l-lg"><%= link "YES", to: Routes.submission_path(@conn, :update, submission.id), method: :put %></button>
+                        <button class="text-red-800 text-2xl bg-red-400 h-16 w-16 rounded-r-lg"><%= link "NO", to: Routes.submission_path(@conn, :delete, submission.id), method: :delete, data: [confirm: "Are you sure?"] %></button>
+                    </div>
                 </div>
-                <a href=""><span class="text-gray-400 tracking-wide mx-8">LINK TO TRACK</span></a>
-            </div>
+            <% end %>
+        </div>
 
-            <div class="flex flex-row">
-                <button class="bg-green-300 px-4 py-2 m-2 rounded-md">+</button>
-                <button class="bg-red-300 px-4 py-2 m-2 rounded-md">x</button>
-            </div>
-
+        <div id="active" class="hidden w-4/5">
+            <%= for submission <- active() do %>
+                <div class="flex flex-row justify-between flex-wrap items-center p-2 my-1 rounded-lg bg-gray-800">
+                    <div class="flex flex-col items-start">
+                        <div class="flex flex-row w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">NAME:</span>
+                            <span class="text-orange-300 tracking-wide mx-2"><%= submission.first_name %> <%= submission.last_name %> </span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">EMAIL:</span>
+                            <span class="text-orange-300 tracking-wide mx-2"><%= submission.email %></span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">LINK:</span>
+                            <span class="text-orange-500 underline tracking-wide mx-2"><a href="<%= submission.url %>" target="_blank"><%= submission.url %></a></span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">PLAYLIST:</span>
+                            <span class="text-red-500 tracking-wide mx-2"><%= get_playlist_name(submission.playlist_id) %></span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">RELEASE DATE:</span>
+                            <span class="text-orange-300 tracking-wide mx-2"><%= submission.release_date %></span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                                <span class="text-gray-100 tracking-wide mx-2">STATUS:</span>
+                                <span class="text-green-500 tracking-wide mx-2"><%= submission.status %></span>
+                            </div>
+                    </div>
+                    <div class="flex flex-row mx-auto md:mx-4 my-4">
+                        <button class="text-red-800 text-2xl bg-red-400 h-16 w-32 rounded-lg"><%= link "DELETE", to: Routes.submission_path(@conn, :delete, submission.id), method: :delete, data: [confirm: "Are you sure?"] %></button>
+                    </div>
+                </div>
+            <% end %>
         </div>
 
 
     </div>
+
+
 </div>
 
 
-<%# should I do admin as a live page same thing with playlists%>
+<script>
+  function showIncoming() {
+    var x = document.getElementById("incoming");
+    var y = document.getElementById("active");
 
-<%# admin page should have tabs: incoming, accepted, active %>
-<%# Incoming shows the new requests %>
-<%# Accepted shows the songs that you accepted but havent added to the playlist yet %>
-<%# Active shows the sogns that are currently active. %>
 
-<%# For the spotify auth should I just authenticate her account or should I auth people as they try to enter the
-playlist view and then auth her for the admin view?%>
+    if (x.classList.contains("hidden")) {
+        x.classList.toggle("hidden")
+        y.classList.toggle("hidden")
+    }
 
-<%# status payment %>
+  }
+
+  function showActive() {
+    var x = document.getElementById("incoming");
+    var y = document.getElementById("active");
+
+
+    if (y.classList.contains("hidden")) {
+        x.classList.toggle("hidden")
+        y.classList.toggle("hidden")
+    }
+
+  }
+
+</script>

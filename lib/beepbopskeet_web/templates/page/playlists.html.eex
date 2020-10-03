@@ -1,27 +1,19 @@
 <div class="container max-w-screen-lg bg-gray-100 shadow-sm">
     <h1 class="tracking-widest text-gray-900 text-6xl py-10 flex flex-row justify-center">PLAYLISTS</h1>
-
     <div class="flex flex-row justify-evenly flex-wrap">
-
-
-
         <%= for playlist <- @playlists do %>
             <div class="flex flex-col bg-gray-500 m-4 shadow-md hover:shadow-2xl rounded-lg">
                 <div class="flex flex-row justify-center items-center">
-                    <h2 class="text-center absolute tracking-widest text-gray-100 text-opacity-100 text-4xl font-bold rounded-md shadow-inner"><%= playlist.name %></h2>
-                    <img class="rounded-t-lg" style="width: 300px; height: 300px;" src="<%= playlist.url %>" />
+                    <h2 class="text-center absolute tracking-widest text-gray-100 text-4xl font-bold rounded-md z-30"><%= playlist.name %></h2>
+                    <img class="rounded-t-lg add-shade" style="width: 300px; height: 300px;" src="<%= playlist.url %>" />
                 </div>
                 <div class="flex flex-row">
-                    <%= link "SUBMIT", class: "w-1/2 py-6 bg-green-300 text-center text-green-700 hover:bg-green-500 hover:text-green-900 tracking-widest", to: Routes.submission_path(@conn, :new, playlist.id, playlist.name) %>
+                    <%= link "SUBMIT", class: "w-1/2 py-6 bg-green-300 text-center text-green-700 hover:bg-green-500 hover:text-green-900 tracking-widest", to: Routes.submission_path(@conn, :new, playlist.id) %>
                     <button class="w-1/2 py-6 bg-blue-300 text-blue-800 tracking-widest">
                         <a href="<%= playlist.external_urls.spotify %>">VISIT</a>
                     </button>
                 </div>
             </div>
-
         <% end %>
-
-
     </div>
-
 </div>

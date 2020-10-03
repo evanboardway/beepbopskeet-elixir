@@ -1,22 +1,27 @@
 defmodule BeepbopskeetWeb.PageView do
   use BeepbopskeetWeb, :view
+  alias Beepbopskeet.Playlists
 
-  def keys_to_atoms(string_key_map) when is_map(string_key_map) do
+  import BeepbopskeetWeb.Helpers.Spotify
 
-    for {key, val} <- string_key_map, into: %{}, do: {String.to_atom(key), keys_to_atoms(val)}
+  def incoming do
+    Playlists.list_incoming()
   end
 
-  def keys_to_atoms(value), do: value
+  def active do
+    Playlists.list_active()
+  end
 
-  def new_submission_params(playlist) do
-    %{
-      playlist_id: playlist.id,
-      image_url: playlist.url
-    }
+  def get_playlist_name(id) do
+    case get_playlist_by_id(id) do
+      {:ok, playlist} -> playlist.name
+      {:error, error} -> error
+    end
+
   end
 
 
 end
 
 
-# for each map in the list I need to split the maps then take the images and create a new map from it then merge the map together
+# Going to need to have it accept an id, and return the map with the info.

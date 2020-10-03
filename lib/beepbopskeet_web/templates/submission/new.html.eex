@@ -1,15 +1,14 @@
-<div class="container h-screen bg-white flex flex-col justify-center items-center">
-
-    <div class="flex flex-col items-center justify-center bg-gray-100 shadow-md w-4/5 md:w-2/3">
-        <h2 class="font-semibold text-4xl tracking-widest mx-5 my-16">PLAYLIST SUBMISSION</h2>
-
-            <div class="w-4/5">
-                <%= render "form.html", Map.put(assigns, :action, Routes.submission_path(@conn, :create)) %>
-            </div>
-
-            <span><%= link "CANCEL", to: Routes.page_path(@conn, :spotify_playlists) %></span>
-
+<div class="container bg-white flex flex-col justify-evenly items-center py-64">
+    <div class="flex flex-row w-full flex-wrap justify-center">
+        <div class="flex flex-col items-center justify-center bg-gray-900 shadow-md w-4/5 md:w-1/2">
+            <%= render("image_wrapper.html", playlist: playlist_from_id(@playlist_id)) %>
+        </div>
+        <div class="flex flex-col items-center justify-center bg-gray-100 shadow-md w-4/5 md:w-1/2">
+            <h2 class="font-semibold text-4xl text-center tracking-widest mx-5 my-16">SUBMISSION FORM</h2>
+                <div class="w-4/5">
+                    <%= render "form.html", Map.put(assigns, :action, Routes.submission_path(@conn, :create, @playlist_id)) %>
+                </div>
+        </div>
     </div>
-
-
+    <span class="px-4 py-2 m-10 bg-red-200 rounded-md"><%= link "CANCEL", to: Routes.page_path(@conn, :spotify_playlists) %></span>
 </div>

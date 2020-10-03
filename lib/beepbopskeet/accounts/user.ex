@@ -6,6 +6,7 @@ defmodule Beepbopskeet.Accounts.User do
   schema "users" do
     field :encrypted_password, :string
     field :username, :string
+    field :is_admin, :boolean
 
     timestamps()
   end

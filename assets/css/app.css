@@ -7,6 +7,9 @@
     display: none;
 }
 
+.add-shade {
+    filter: brightness(0.6);
+}
 
 .dark-white {
     background-color: rgba(255, 255, 255, 0.929);

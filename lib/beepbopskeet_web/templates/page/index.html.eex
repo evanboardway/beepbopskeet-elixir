@@ -78,62 +78,6 @@
 
   </div>
 
-
-<%#
-  <div class="flex flex-col py-10">
-    <div class="flex flex-row flex-wrap justify-evenly">
-      <div class="tiktok">
-        <a href="https://www.tiktok.com/@beepbopskeet/video/6872805301452573957">
-          <img src="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/7520725a6c9e7fc4fc1c3f8a6774c6f6?x-expires=1600372800&x-signature=4ZIjvukGfK8xeaAO6y7MQ882v9Y%3D"></img>
-        </a>
-          <div class="flex flex-row flex-wrap">
-            <a target="_blank" title="@beepbopskeet" href="https://www.tiktok.com/@beepbopskeet">@beepbopskeet</a>
-            <p>try again 😈😈 <a title="anime" target="_blank" href="https://www.tiktok.com/tag/anime">##anime</a>
-              <a title="weeb" target="_blank" href="https://www.tiktok.com/tag/weeb">##weeb</a>
-              <a title="demonslayer" target="_blank" href="https://www.tiktok.com/tag/demonslayer">##demonslayer</a>
-              <a title="tanjiro" target="_blank" href="https://www.tiktok.com/tag/tanjiro">##tanjiro</a>
-              <a title="animemerch" target="_blank" href="https://www.tiktok.com/tag/animemerch">##animemerch</a>
-            </p>
-            <a target="_blank" title="♬ original sound - beepbopskeet" href="https://www.tiktok.com/music/original-sound-6872805243961232133">♬ original sound - beepbopskeet</a>
-          </div>
-      </div>
-
-      <div class="tiktok">
-        <a href="https://www.tiktok.com/@beepbopskeet/video/6872539553119407366">
-          <img src="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/cbf158ff64b21fc2c3da3092a78fdf57?x-expires=1600390800&x-signature=Oa3Dnoc%2FWI6WyROxECVrVGkIN6Q%3D"></img>
-        </a>
-          <div class="flex flex-row flex-wrap">
-            <a target="_blank" title="@beepbopskeet" href="https://www.tiktok.com/@beepbopskeet">@beepbopskeet</a>
-              <p>what’s the other 1%? <a title="denki" target="_blank" href="https://www.tiktok.com/tag/denki">##denki</a>
-              <a title="aizawa" target="_blank" href="https://www.tiktok.com/tag/aizawa">##aizawa</a>
-              <a title="mha" target="_blank" href="https://www.tiktok.com/tag/mha">##mha</a>
-              <a title="bnha" target="_blank" href="https://www.tiktok.com/tag/bnha">##bnha</a>
-              <a title="anime" target="_blank" href="https://www.tiktok.com/tag/anime">##anime</a>
-              <a title="weeb" target="_blank" href="https://www.tiktok.com/tag/weeb">##weeb</a>
-            </p>
-            <a target="_blank" title="♬ original sound - nwarmy" href="https://www.tiktok.com/music/original-sound-6790529650012883717">♬ original sound - nwarmy</a>
-          </div>
-      </div>
-
-      <div class="tiktok">
-        <a href="https://www.tiktok.com/@beepbopskeet/video/6872440604664597766">
-          <img src="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/1dfad88c37be4c44b4a86c0111132763?x-expires=1600390800&x-signature=jndh14oDHZq9ArpZWlJGZC6yzxQ%3D"></img>
-        </a>
-        <div class="flex flex-row flex-wrap">
-          <a target="_blank" title="@beepbopskeet" href="https://www.tiktok.com/@beepbopskeet">@beepbopskeet</a>
-          <p>a little ✨uncomfy✨  <a title="ohshc" target="_blank" href="https://www.tiktok.com/tag/ohshc">#ohshc</a>
-            <a title="anime" target="_blank" href="https://www.tiktok.com/tag/anime">#anime</a>
-            <a title="hikaruandkaoru" target="_blank" href="https://www.tiktok.com/tag/hikaruandkaoru">#hikaruandkaoru</a>
-            <a title="ouranhighschoolhostclub" target="_blank" href="https://www.tiktok.com/tag/ouranhighschoolhostclub">#ouranhighschoolhostclub</a>
-          </p>
-          <a target="_blank" title="♬ Friends Ross is Fine - tbsnetwork" href="https://www.tiktok.com/music/Friends-Ross-is-Fine-6863113666494024454">♬ Friends Ross is Fine - tbsnetwork</a>
-        </div>
-      </div>
-    </div>
-    <button href="https://www.tiktok.com/@beepbopskeet" class="more-button mx-auto mt-4">See More</button>
-  </div> %>
-
-
 </div>
 
 <%# the tiktok pages should be a view %>

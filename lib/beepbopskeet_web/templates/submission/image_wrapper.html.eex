@@ -1,0 +1,12 @@
+<%= if !@playlist.error do %>
+
+<div class="absolute flex flex-col z-30">
+
+    <h2 class="font-semibold text-6xl text-white text-opacity-75 text-center tracking-widest"><%= @playlist.name %></h2>
+    <h1 class="font-semibold text-2xl text-gray-300 text-center text-opacity-75 tracking-wide"><%= @playlist.followers.total %> FOLLOWERS</h1>
+</div>
+
+<img class="add-shade" src="<%= @playlist.url %>" />
+<% else %>
+    <h1 class="font-semibold text-2xl text-gray-300 text-center text-opacity-75 tracking-wide">THERE WAS AN ERROR LOADING THIS RESOURCE</h1>
+<% end %>

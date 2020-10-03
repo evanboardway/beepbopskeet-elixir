@@ -6,7 +6,7 @@
   <% end %>
 
 
-  <div class="flex flex-col justify-evenly flex-wrap">
+  <div class="flex flex-col justify-evenly">
 
       <h1 class="tracking-wide">FIRST NAME</h1>
       <%= text_input f, :first_name, class: "rounded-lg py-2 my-4" %>
@@ -20,19 +20,20 @@
       <%= text_input f, :email, class: "rounded-lg py-2 my-4" %>
       <%= error_tag f, :email %>
 
-      <h1 class="tracking-wide">URL</h1>
+      <h1 class="tracking-wide">LINK TO SONG</h1>
       <%= text_input f, :url, class: "rounded-lg py-2 my-4" %>
       <%= error_tag f, :url %>
 
-      <h1 class="tracking-wide my-4">RELEASE DATE</h1>
-      <%= datetime_select f, :release_date, class: "rounded-lg py-2 my-4" %>
+      <h1 class="tracking-wide my-4">RELEASE DATE - MM/DD/YYYY</h1>
+      <%= text_input f, :release_date, class: "rounded-lg py-2 my-4" %>
       <%= error_tag f, :release_date %>
 
+      <%= hidden_input f, :status, value: "INCOMING" %>
 
   </div>
 
-    <div>
-      <button><%= submit "SUBMIT", class: "bg-red-200 px-4 py-2 my-4 flex rounded-lg" %></button>
-    </div>
+  <div class="flex flex-row justify-center my-10">
+    <button><%= submit "SUBMIT", class: "bg-blue-200 px-4 py-2 flex rounded-lg" %></button>
+  </div>
 
 <% end %>

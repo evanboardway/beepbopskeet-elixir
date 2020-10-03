@@ -42,6 +42,7 @@ defmodule BeepbopskeetWeb do
       import BeepbopskeetWeb.ErrorHelpers
       import BeepbopskeetWeb.Gettext
       import BeepbopskeetWeb.Helpers.Auth
+      import BeepbopskeetWeb.Helpers.Spotify
 
       alias BeepbopskeetWeb.Router.Helpers, as: Routes
     end
