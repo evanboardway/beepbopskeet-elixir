@@ -9,6 +9,10 @@ defmodule BeepbopskeetWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  if Mix.env == :dev do
+    forward "/sent-emails", Bamboo.SentEmailViewerPlug
+  end
+
   pipeline :admin do
     plug BeepbopskeetWeb.Plug.Admin
   end

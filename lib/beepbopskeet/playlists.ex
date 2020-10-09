@@ -39,6 +39,15 @@ defmodule Beepbopskeet.Playlists do
     Repo.all(query)
   end
 
+  def list_pending do
+    query =
+      from s in "submissions",
+        where: s.status == "PENDING",
+        select: %{id: s.id, email: s.email, first_name: s.first_name, last_name: s.last_name, release_date: s.release_date, url: s.url, playlist_id: s.playlist_id, status: s.status}
+
+    Repo.all(query)
+  end
+
   @doc """
   Gets a single submission.
 

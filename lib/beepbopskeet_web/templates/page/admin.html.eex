@@ -4,16 +4,17 @@
 
 
         <div class="flex flex-row flex-wrap items-center justify-between bg-gray-200 rounded-lg py-4 w-4/5 mt-12 mb-2">
-            <span class="text-gray-800 mx-4 text-xl tracking-wide font-bold">FILTER</span>
-            <div class="flex flex-row">
+            <span class="text-gray-800 text-xl tracking-wide font-bold mx-4 hidden md:block">FILTER</span>
+            <div class="flex flex-row mx-auto md:mx-0">
                 <button class="text-gray-800 bg-gray-300 px-2 py-1 rounded-md mx-4 text-xl tracking-wide" onclick="showIncoming()">INCOMING</button>
+                <button class="text-gray-800 bg-gray-300 px-2 py-1 rounded-md mx-4 text-xl tracking-wide" onclick="showPending()">PENDING</button>
                 <button class="text-gray-800 bg-gray-300 px-2 py-1 rounded-md mx-4 text-xl tracking-wide" onclick="showActive()">ACTIVE</button>
             </div>
         </div>
 
         <div id="incoming" class="w-4/5">
             <%= for submission <- incoming() do %>
-                <div class="flex flex-row justify-between flex-wrap items-center p-2 my-1 rounded-lg bg-gray-800">
+                <div class="flex flex-row justify-between flex-wrap items-center p-2 my-4 rounded-lg bg-gray-800 shadow-md">
                     <div class="flex flex-col items-start">
                         <div class="flex flex-row w-full">
                             <span class="text-gray-100 tracking-wide mx-2">NAME:</span>
@@ -25,7 +26,7 @@
                         </div>
                         <div class="flex flex-row flex-wrap w-full">
                             <span class="text-gray-100 tracking-wide mx-2">LINK:</span>
-                            <span class="text-orange-500 underline tracking-wide mx-2"><a href="<%= submission.url %>" target="_blank"><%= submission.url %></a></span>
+                            <span class="text-blue-500 underline tracking-wide mx-2"><a href="<%= submission.url %>" target="_blank"><%= submission.url %></a></span>
                         </div>
                         <div class="flex flex-row flex-wrap w-full">
                             <span class="text-gray-100 tracking-wide mx-2">PLAYLIST:</span>
@@ -41,16 +42,20 @@
                         </div>
                     </div>
                     <div class="flex flex-row mx-auto md:mx-4 my-4">
-                        <button class="text-green-800 text-2xl bg-green-400 h-16 w-16 rounded-l-lg"><%= link "YES", to: Routes.submission_path(@conn, :update, submission.id), method: :put %></button>
+                        <button class="text-green-800 text-2xl bg-green-400 h-16 w-16 rounded-l-lg"><%= link "YES", to: Routes.submission_path(@conn, :update, submission.id, %{status: "PENDING"}), method: :put, data: [confirm: "Are you sure?"] %></button>
                         <button class="text-red-800 text-2xl bg-red-400 h-16 w-16 rounded-r-lg"><%= link "NO", to: Routes.submission_path(@conn, :delete, submission.id), method: :delete, data: [confirm: "Are you sure?"] %></button>
                     </div>
                 </div>
             <% end %>
+            <span class="text-gray-600">
+                You are viewing incoming submissions. Clicking no will send an email to the artist letting them know that you denied their submission and delete the submission from the system.
+                Clicking yes will send them an email with the price breakdown for that playlist and move the submission to the pending tab.
+            </span>
         </div>
 
-        <div id="active" class="hidden w-4/5">
-            <%= for submission <- active() do %>
-                <div class="flex flex-row justify-between flex-wrap items-center p-2 my-1 rounded-lg bg-gray-800">
+        <div id="pending" class="w-4/5 hidden">
+            <%= for submission <- pending() do %>
+                <div class="flex flex-row justify-between flex-wrap items-center p-2 my-4 rounded-lg bg-gray-800 shadow-md">
                     <div class="flex flex-col items-start">
                         <div class="flex flex-row w-full">
                             <span class="text-gray-100 tracking-wide mx-2">NAME:</span>
@@ -62,7 +67,49 @@
                         </div>
                         <div class="flex flex-row flex-wrap w-full">
                             <span class="text-gray-100 tracking-wide mx-2">LINK:</span>
-                            <span class="text-orange-500 underline tracking-wide mx-2"><a href="<%= submission.url %>" target="_blank"><%= submission.url %></a></span>
+                            <span class="text-blue-500 underline tracking-wide mx-2"><a href="<%= submission.url %>" target="_blank"><%= submission.url %></a></span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">PLAYLIST:</span>
+                            <span class="text-red-500 tracking-wide mx-2"><%= get_playlist_name(submission.playlist_id) %></span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">RELEASE DATE:</span>
+                            <span class="text-orange-300 tracking-wide mx-2"><%= submission.release_date %></span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">STATUS:</span>
+                            <span class="text-orange-500 tracking-wide mx-2"><%= submission.status %></span>
+                        </div>
+                    </div>
+                    <div class="flex flex-row mx-auto md:mx-4 my-4">
+                        <button class="text-green-800 text-2xl bg-green-400 h-16 w-32 rounded-l-lg"><%= link "ACTIVATE", to: Routes.submission_path(@conn, :update, submission.id, %{status: "ACTIVE"}), method: :put, data: [confirm: "Are you sure?"] %></button>
+                        <button class="text-red-800 text-2xl bg-red-400 h-16 w-32 rounded-r-lg"><%= link "DELETE", to: Routes.submission_path(@conn, :delete, submission.id), method: :delete, data: [confirm: "Are you sure?"] %></button>
+                    </div>
+                </div>
+            <% end %>
+            <span class="text-gray-600">
+                You are viewing pending submissions. These are submissions that you have accepted but are awaiting payment. WARNING: Only click activate when
+                you have recieved payment and added the song to the playlist, it will email the artist that their song is now on the playlist. Clicking delete will remove
+                the submission from the system (no email will be sent) - only use this if the artist has not replied or chose not to go through with payment.
+            </span>
+        </div>
+
+        <div id="active" class="hidden w-4/5">
+            <%= for submission <- active() do %>
+                <div class="flex flex-row justify-between flex-wrap items-center p-2 my-4 rounded-lg bg-gray-800 shadow-md">
+                    <div class="flex flex-col items-start">
+                        <div class="flex flex-row w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">NAME:</span>
+                            <span class="text-orange-300 tracking-wide mx-2"><%= submission.first_name %> <%= submission.last_name %> </span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">EMAIL:</span>
+                            <span class="text-orange-300 tracking-wide mx-2"><%= submission.email %></span>
+                        </div>
+                        <div class="flex flex-row flex-wrap w-full">
+                            <span class="text-gray-100 tracking-wide mx-2">LINK:</span>
+                            <span class="text-blue-500 underline tracking-wide mx-2"><a href="<%= submission.url %>" target="_blank"><%= submission.url %></a></span>
                         </div>
                         <div class="flex flex-row flex-wrap w-full">
                             <span class="text-gray-100 tracking-wide mx-2">PLAYLIST:</span>
@@ -82,6 +129,10 @@
                     </div>
                 </div>
             <% end %>
+            <span class="text-gray-600">
+                You are viewing active submissions. These are submissions that are currently on your playlists so you can keep track of them.
+                Clicking delete will remove them from the system.
+            </span>
         </div>
 
 
@@ -95,11 +146,11 @@
   function showIncoming() {
     var x = document.getElementById("incoming");
     var y = document.getElementById("active");
-
-
+    var z = document.getElementById("pending");
     if (x.classList.contains("hidden")) {
         x.classList.toggle("hidden")
-        y.classList.toggle("hidden")
+        hide(y);
+        hide(z);
     }
 
   }
@@ -107,13 +158,29 @@
   function showActive() {
     var x = document.getElementById("incoming");
     var y = document.getElementById("active");
-
-
+    var z = document.getElementById("pending");
     if (y.classList.contains("hidden")) {
-        x.classList.toggle("hidden")
         y.classList.toggle("hidden")
+        hide(x);
+        hide(z);
     }
 
   }
 
+  function showPending() {
+    var x = document.getElementById("incoming");
+    var y = document.getElementById("active");
+    var z = document.getElementById("pending");
+    if (z.classList.contains("hidden")) {
+        z.classList.toggle("hidden")
+        hide(x);
+        hide(y);
+    }
+  }
+
+  function hide(element) {
+      if (!element.classList.contains("hidden")) {
+          element.classList.toggle("hidden");
+      }
+  }
 </script>

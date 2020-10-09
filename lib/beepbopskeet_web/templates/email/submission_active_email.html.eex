@@ -1,0 +1,18 @@
+<div class="flex flex-col items-center">
+
+    <h2 class="tracking-widest text-center text-6xl m-4">BEEPBOPSKEET</h2>
+
+    <span class="m-10 font-bold text-center">
+        Congrats <%= @payload.submission.first_name %>, your submission to <%= @payload.playlist.name %>
+        has now been added. You can view it here!
+    </span>
+
+    <span><%= @payload.playlist.external_urls.spotify %></span>
+
+    <img class="max-w-xl max-h-xl my-10" src="<%= @payload.playlist.url %>" />
+
+    <span class="mt-16">
+        Sincerely, The Beepbopskeet team
+    </span>
+
+</div>

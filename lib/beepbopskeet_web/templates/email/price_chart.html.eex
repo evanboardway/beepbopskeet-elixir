@@ -1,0 +1,22 @@
+<div class="flex flex-col justify-between p-2">
+    <div class="flex flex-row flex-wrap justify-between my-4">
+        <h1 class="mr-4">PLAYLIST: </h1>
+        <h1 class="text-gray-700"><%= @playlist.name %></h1>
+    </div>
+    <hr class="w-full">
+    <div class="flex flex-row flex-wrap justify-between my-4">
+        <h1 class="mr-4">FOLLOWERS: </h1>
+        <h1 class="text-gray-700"><%= @playlist.followers.total %></h1>
+    </div>
+    <hr class="w-full">
+    <div class="flex flex-row flex-wrap justify-between my-4">
+        <h1 class="mr-4">PRICE - TWO WEEKS: </h1>
+        <h1 class="text-red-800"><%= get_price_two_weeks(@category) %></h1>
+    </div>
+    <hr class="w-full">
+    <div class="flex flex-row flex-wrap justify-between my-4">
+        <h1 class="mr-4">PRICE - ONE MONTH: </h1>
+        <h1 class="text-red-800"><%= get_price_one_month(@category) %></h1>
+    </div>
+    <h1 class="text-sm text-center text-red-400">Please note that these prices are for positions 20 and up. Each subsequent 20 positions down in the playlist will reduce the price by <%= price_reduce(@category) %></h1>
+</div>

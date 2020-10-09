@@ -1,10 +1,10 @@
-<div class="container max-w-screen-lg bg-gray-100 shadow-sm">
+<div class="container max-w-screen-lg bg-gray-100 shadow-sm pb-16">
     <h1 class="tracking-widest text-gray-900 text-6xl py-10 flex flex-row justify-center">PLAYLISTS</h1>
     <div class="flex flex-row justify-evenly flex-wrap">
         <%= for playlist <- @playlists do %>
             <div class="flex flex-col bg-gray-500 m-4 shadow-md hover:shadow-2xl rounded-lg">
                 <div class="flex flex-row justify-center items-center">
-                    <h2 class="text-center absolute tracking-widest text-gray-100 text-4xl font-bold rounded-md z-30"><%= playlist.name %></h2>
+                    <h2 class="text-center absolute tracking-widest text-gray-100 text-4xl font-bold rounded-md z-30 mx-16"><%= playlist.name %></h2>
                     <img class="rounded-t-lg add-shade" style="width: 300px; height: 300px;" src="<%= playlist.url %>" />
                 </div>
                 <div class="flex flex-row">

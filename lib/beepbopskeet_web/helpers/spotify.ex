@@ -1,10 +1,10 @@
 defmodule BeepbopskeetWeb.Helpers.Spotify do
 
   def get_spotify_token do
-    client_creds = "5197bfdc2195422bb9b19099a74a87ca:d37cc39b17c542ceb81f7b463f43bb2c"
-    _client_secret = "d37cc39b17c542ceb81f7b463f43bb2c"
+    client_id = "5197bfdc2195422bb9b19099a74a87ca"
+    client_secret = "155cdf6fd2ec4bd4a69c213f29ce0b42"
 
-    encoded = Base.encode64("#{client_creds}")
+    encoded = Base.encode64("#{client_id}:#{client_secret}")
 
     response =
       HTTPoison.request(
@@ -14,7 +14,7 @@ defmodule BeepbopskeetWeb.Helpers.Spotify do
         [
           {"Content-Type", "application/x-www-form-urlencoded"},
           {"Authorization",
-           "Basic NTE5N2JmZGMyMTk1NDIyYmI5YjE5MDk5YTc0YTg3Y2E6MTU1Y2RmNmZkMmVjNGJkNGE2OWMyMTNmMjljZTBiNDI="}
+           "Basic #{encoded}"}
         ]
       )
 
@@ -71,7 +71,7 @@ defmodule BeepbopskeetWeb.Helpers.Spotify do
     response =
       HTTPoison.request(
         :get,
-        "https://api.spotify.com/v1/playlists/#{playlist_id}?fields=description,images,followers,name,uri",
+        "https://api.spotify.com/v1/playlists/#{playlist_id}?fields=description,images,followers,name,uri,external_urls",
         "",
         [
           {"Content-Type", "application/json"},
@@ -89,6 +89,10 @@ defmodule BeepbopskeetWeb.Helpers.Spotify do
         desc =
           extraction
           |> Map.take([:description])
+
+        link =
+          extraction
+          |> Map.take([:external_urls])
 
         fol =
           extraction
@@ -119,6 +123,7 @@ defmodule BeepbopskeetWeb.Helpers.Spotify do
           |> Map.merge(uri)
           |> Map.merge(images)
           |> Map.merge(fol)
+          |> Map.merge(link)
           |> Map.put(:error, false)
 
         {:ok, plst}

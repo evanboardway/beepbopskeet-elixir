@@ -30,6 +30,9 @@ config :beepbopskeet, BeepbopskeetWeb.Endpoint,
     ]
   ]
 
+config :beepbopskeet, Beepbopskeet.Mailer,
+  adapter: Bamboo.LocalAdapter
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

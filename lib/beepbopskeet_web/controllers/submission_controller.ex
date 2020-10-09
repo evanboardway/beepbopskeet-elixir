@@ -1,10 +1,14 @@
 defmodule BeepbopskeetWeb.SubmissionController do
   use BeepbopskeetWeb, :controller
   use HTTPoison.Base
+
   import Poison
+  import BeepbopskeetWeb.Helpers.Spotify
 
   alias Beepbopskeet.Playlists
   alias Beepbopskeet.Playlists.Submission
+  alias Beepbopskeet.Mailer
+  alias BeepbopskeetWeb.Email
 
   def new(conn, %{"playlist_id" => playlist_id}) do
     changeset = Playlists.change_submission(%Submission{})
@@ -16,12 +20,35 @@ defmodule BeepbopskeetWeb.SubmissionController do
 
   end
 
-  def update(conn, %{"id" => id}) do
+  def update(conn, %{"id" => id, "status" => status}) do
     sub = Playlists.get_submission!(id)
-    Playlists.update_submission(sub, %{status: "ACTIVE"})
+    playlist = get_playlist_by_id(sub.playlist_id)
+
+    case playlist do
+      {:ok, playlist} ->
+        cond do
+          status == "PENDING" ->
+            Email.accepted_email(sub, playlist)
+            |> Mailer.deliver_later()
+            Playlists.update_submission(sub, %{status: status})
+
+          status == "ACTIVE" ->
+            Email.submission_active_email(sub, playlist)
+            |> Mailer.deliver_later()
+            Playlists.update_submission(sub, %{status: status})
+
+        end
+
+
+      {:error, error} ->
+        conn
+        |> put_flash(:info, error)
+        |> redirect(to: Routes.page_path(conn, :admin_portal))
+
+    end
 
     conn
-    |> put_flash(:info, "Added to active submissions.")
+    |> put_flash(:info, "Added to #{status} submissions.")
     |> redirect(to: Routes.page_path(conn, :admin_portal))
   end
 
@@ -49,5 +76,6 @@ defmodule BeepbopskeetWeb.SubmissionController do
     |> put_flash(:info, "Submission deleted successfully.")
     |> redirect(to: Routes.page_path(conn, :admin_portal))
   end
+
 
 end

@@ -12,6 +12,10 @@ defmodule BeepbopskeetWeb.PageView do
     Playlists.list_active()
   end
 
+  def pending do
+    Playlists.list_pending()
+  end
+
   def get_playlist_name(id) do
     case get_playlist_by_id(id) do
       {:ok, playlist} -> playlist.name
