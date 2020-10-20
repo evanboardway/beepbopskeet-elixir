@@ -1,7 +1,7 @@
 <div class="container max-w-screen-lg bg-white shadow-sm">
 
   <div class="flex flex-col items-center justify-center h-screen motion-safe:animate-fadeIn mx-6">
-    <img class="h-64 rounded-full mb-16" src="<%= Routes.static_path(@conn, "/images/anime_avatar.jpg") %>"></img>
+    <img class="h-64 rounded-full mb-16" src="<%= Routes.static_path(@conn, "/images/anime_avatar.JPG") %>"></img>
     <h1 class="tracking-widest text-6xl mb-20">BEEPBOPSKEET</h1>
     <hr class="w-3/5 my-2">
     <h2 class="tracking-widest text-center text-6xl my-20 mx-6">Anime Fan + Content Creator</h2>
@@ -34,7 +34,7 @@
 
 
   <div class="flex flex-col h-screen items-center justify-center">
-    <div class="w-64"><img class="rounded-full my-16" src="<%= Routes.static_path(@conn, "/images/personal.jpg") %>"></img></div>
+    <div class="w-64"><img class="rounded-full my-16" src="<%= Routes.static_path(@conn, "/images/personal.JPG") %>"></img></div>
     <h1 class="tracking-widest text-6xl mb-20">ABOUT ME</h1>
     <hr class="w-1/2 mb-6">
     <h2 class="my-10 tracking-widest text-4xl mb-2">CARMEN</h2>
