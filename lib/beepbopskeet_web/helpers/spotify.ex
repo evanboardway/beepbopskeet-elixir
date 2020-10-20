@@ -2,7 +2,7 @@ defmodule BeepbopskeetWeb.Helpers.Spotify do
 
   def get_spotify_token do
     client_id = "5197bfdc2195422bb9b19099a74a87ca"
-    client_secret = "155cdf6fd2ec4bd4a69c213f29ce0b42"
+    client_secret = Application.get_env(:beepbopskeet, :spotify_secret)
 
     encoded = Base.encode64("#{client_id}:#{client_secret}")
 

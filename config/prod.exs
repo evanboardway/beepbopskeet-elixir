@@ -15,14 +15,15 @@ config :beepbopskeet, BeepbopskeetWeb.Endpoint,
   url: [host: "beepbopskeet.gigalixirapp.com", port: 443],
   http: [port: {:system, "PORT"}],
   cache_static_manifest: "priv/static/cache_manifest.json",
-  version: Mix.Project.config[:version]
+  version: Mix.Project.config()[:version]
 
-  config :beepbopskeet, BeepBopSkeet.Repo,
+config :beepbopskeet, BeepBopSkeet.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: "${DATABASE_URL}",
-  database: "", # Works around a bug in older versions of ecto. Doesn't hurt for other versions.
+  # Works around a bug in older versions of ecto. Doesn't hurt for other versions.
+  database: "",
   ssl: true,
-  pool_size: 2
+  pool_size: "${POOL_SIZE}"
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -32,16 +33,16 @@ config :logger, level: :info
 # To get SSL working, you will need to add the `https` key
 # to the previous section and set your `:url` port to 443:
 #
-    # config :beepbopskeet, BeepbopskeetWeb.Endpoint,
-    #   ...
-    #   url: [host: "example.com", port: 443],
-    #   https: [
-    #     port: 443,
-    #     cipher_suite: :strong,
-    #     keyfile: System.get_env("SOME_APP_SSL_KEY_PATH"),
-    #     certfile: System.get_env("SOME_APP_SSL_CERT_PATH"),
-    #     transport_options: [socket_opts: [:inet6]]
-    #   ]
+# config :beepbopskeet, BeepbopskeetWeb.Endpoint,
+#   ...
+#   url: [host: "example.com", port: 443],
+#   https: [
+#     port: 443,
+#     cipher_suite: :strong,
+#     keyfile: System.get_env("SOME_APP_SSL_KEY_PATH"),
+#     certfile: System.get_env("SOME_APP_SSL_CERT_PATH"),
+#     transport_options: [socket_opts: [:inet6]]
+#   ]
 #
 # The `cipher_suite` is set to `:strong` to support only the
 # latest and more secure SSL ciphers. This means old browsers
