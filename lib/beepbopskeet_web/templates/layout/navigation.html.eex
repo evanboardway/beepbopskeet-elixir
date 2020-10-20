@@ -11,7 +11,7 @@
   <div class="rounded-full flex flex-no-shrink text-grey-darkest items-center mr-6 p-2">
     <a class="flex flex-row items-center" href="/">
       <img class="h-12 rounded-full " src="<%= Routes.static_path(@conn, "/images/anime_avatar.jpg") %>"></img>
-      <span class="font-semibold text-xl tracking-widest mx-5">BEEPBOPSKEET</span>
+      <span class="text-xl tracking-widest mx-5">BEEPBOPSKEET</span>
     </a>
   </div>
   <div class="block md:hidden">

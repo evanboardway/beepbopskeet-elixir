@@ -10,8 +10,19 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :beepbopskeet, BeepbopskeetWeb.Endpoint,
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  server: true,
+  load_from_system_env: true,
+  url: [host: "beepbopskeet.gigalixirapp.com", port: 443],
+  http: [port: {:system, "PORT"}],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  version: Mix.Project.config[:version]
+
+  config :beepbopskeet, BeepBopSkeet.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: "${DATABASE_URL}",
+  database: "", # Works around a bug in older versions of ecto. Doesn't hurt for other versions.
+  ssl: true,
+  pool_size: 2
 
 # Do not print debug messages in production
 config :logger, level: :info
