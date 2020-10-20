@@ -47,6 +47,7 @@ defmodule Beepbopskeet.MixProject do
       {:httpoison, "~> 1.6"},
       {:poison, "~> 4.0"},
       {:bamboo, "~> 1.5"},
+      {:distillery, "~> 2.1"},
       {:plug_cowboy, "~> 2.0"}
     ]
   end

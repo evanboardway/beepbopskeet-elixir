@@ -4,7 +4,7 @@
         <%= for playlist <- @playlists do %>
             <div class="flex flex-col bg-gray-500 m-4 shadow-md hover:shadow-2xl rounded-lg">
                 <div class="flex flex-row justify-center items-center">
-                    <h2 class="text-center absolute tracking-widest text-gray-100 text-4xl font-bold rounded-md z-30 mx-16"><%= playlist.name %></h2>
+                    <h2 class="text-center absolute tracking-widest text-gray-100 px-2 py-48 text-4xl rounded-md z-30" style="width: 300px; height: 300px;"><%= playlist.name %></h2>
                     <img class="rounded-t-lg add-shade" style="width: 300px; height: 300px;" src="<%= playlist.url %>" />
                 </div>
                 <div class="flex flex-row">
