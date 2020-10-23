@@ -68,7 +68,7 @@
     @apply flex;
     @apply flex-col;
     @apply items-center;
-    @apply my-24;
+    @apply mt-24;
     @apply py-24;
     @apply bg-gray-100;
 }

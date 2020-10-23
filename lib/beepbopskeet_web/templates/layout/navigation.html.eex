@@ -33,6 +33,11 @@
           INSTAGRAM
         </a>
       </div>
+      <div class="md:hover:bg-blue-200 rounded-lg">
+        <a href="https://www.twitch.tv/itsbeepbopskeet" class="block my-2 md:inline-block md:my-0 text-grey-darkest mx-2 md:mx-10 no-underline tracking-widest text-xl">
+          TWITCH
+        </a>
+      </div>
       <div class="bg-gray-200 md:hover:bg-blue-200 rounded-lg">
         <a href="/playlists" class="block my-2 md:inline-block md:my-0 text-grey-darkest mx-2 md:mx-10 no-underline tracking-widest text-xl">
           SPOTIFY PLAYLISTS
