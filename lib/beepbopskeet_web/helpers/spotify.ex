@@ -5,6 +5,9 @@ defmodule BeepbopskeetWeb.Helpers.Spotify do
 
     encoded = Base.encode64("#{client_id}:#{client_secret}")
 
+    IO.inspect(client_secret)
+    IO.inspect(encoded)
+
     response =
       HTTPoison.request(
         :post,
@@ -27,7 +30,8 @@ defmodule BeepbopskeetWeb.Helpers.Spotify do
           |> elem(1)
         {:ok, token}
 
-      {:ok, %HTTPoison.Response{status_code: 400}} ->
+      {:ok, %HTTPoison.Response{body: body, status_code: 400}} ->
+        IO.inspect(body)
         {:error, "Invalid client"}
 
       {:error, error} ->
