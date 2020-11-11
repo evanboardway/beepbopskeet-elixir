@@ -1,3 +1,5 @@
-<div class="container bg-white">
-    <h1><%= @error %></h1>
+<div class="container flex flex-col justify-center items-center bg-white h-screen">
+    <div class="bg-gray-100 shadow-md rounded-md w-2/3 p-16">
+        <h2 class="text-4xl text-center tracking-widest"><%= @error %></h2>
+    </div>
 </div>

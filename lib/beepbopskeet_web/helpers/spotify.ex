@@ -18,17 +18,19 @@ defmodule BeepbopskeetWeb.Helpers.Spotify do
 
     case response do
       {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
-        body
-        |> Poison.decode!()
-        |> Map.take(["access_token"])
-        |> Enum.map(fn {k, v} -> {String.to_atom(k), v} end)
-        |> Enum.at(0)
-        |> elem(1)
+        token =
+          body
+          |> Poison.decode!()
+          |> Map.take(["access_token"])
+          |> Enum.map(fn {k, v} -> {String.to_atom(k), v} end)
+          |> Enum.at(0)
+          |> elem(1)
+        {:ok, token}
 
-      {:ok, %HTTPoison.Response{body: body, status_code: 400}} ->
+      {:ok, %HTTPoison.Response{status_code: 400}} ->
         {:error, "Invalid client"}
 
-      {:error, _} ->
+      {:error, error} ->
         {:error, "An error has occured."}
     end
   end
@@ -37,32 +39,35 @@ defmodule BeepbopskeetWeb.Helpers.Spotify do
     token = get_spotify_token()
     url = "https://api.spotify.com/v1/users/carmenelainee/playlists"
 
-    response =
-      HTTPoison.request(
-        :get,
-        url,
-        "",
-        [
-          {"Content-Type", "application/json"},
-          {"Authorization", "Bearer #{token}"}
-        ]
-      )
+    case token do
+      {:ok, token} ->
+        case HTTPoison.request(
+               :get,
+               url,
+               "",
+               [
+                 {"Content-Type", "application/json"},
+                 {"Authorization", "Bearer #{token}"}
+               ]
+             ) do
+          {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
+            extraction =
+              body
+              |> Poison.decode!()
+              |> Map.take(["items"])
+              |> Enum.map(fn {k, v} -> {String.to_atom(k), v} end)
+              |> Enum.at(0)
+              |> elem(1)
+              |> Enum.map(fn playlist -> keys_to_atoms(playlist) end)
 
-    case response do
-      {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
-        extraction =
-          body
-          |> Poison.decode!()
-          |> Map.take(["items"])
-          |> Enum.map(fn {k, v} -> {String.to_atom(k), v} end)
-          |> Enum.at(0)
-          |> elem(1)
-          |> Enum.map(fn playlist -> keys_to_atoms(playlist) end)
+            {:ok, extraction}
 
-        {:ok, extraction}
+          {:error, _} ->
+            {:error, "An error has occured"}
+        end
 
-      {:error, _} ->
-        {:error, "An error has occured"}
+      {:error, error} ->
+        {:error, error}
     end
   end
 
