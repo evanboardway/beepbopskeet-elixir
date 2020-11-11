@@ -9,7 +9,8 @@ use Mix.Config
 
 config :beepbopskeet,
   ecto_repos: [Beepbopskeet.Repo],
-  spotify_secret: System.get_env("SPOTIFY_CLIENT_SECRET")
+  spotify_client_secret: System.get_env("SPOTIFY_CLIENT_SECRET")
+  spotify_client_id: System.get_env("SPOTIFY_CLIENT_ID")
 
 # Configures the endpoint
 config :beepbopskeet, BeepbopskeetWeb.Endpoint,

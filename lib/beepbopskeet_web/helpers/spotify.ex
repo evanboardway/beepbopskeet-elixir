@@ -1,12 +1,9 @@
 defmodule BeepbopskeetWeb.Helpers.Spotify do
   def get_spotify_token do
-    client_id = "5197bfdc2195422bb9b19099a74a87ca"
-    client_secret = Application.get_env(:beepbopskeet, :spotify_secret)
+    client_id = Application.get_env(:beepbopskeet, :spotify_client_id)
+    client_secret = Application.get_env(:beepbopskeet, :spotify_client_secret)
 
     encoded = Base.encode64("#{client_id}:#{client_secret}")
-
-    IO.inspect(client_secret)
-    IO.inspect(encoded)
 
     response =
       HTTPoison.request(
@@ -31,8 +28,7 @@ defmodule BeepbopskeetWeb.Helpers.Spotify do
         {:ok, token}
 
       {:ok, %HTTPoison.Response{body: body, status_code: 400}} ->
-        IO.inspect(body)
-        {:error, "Invalid client"}
+        {:error, "Oops! We're having issues connecting to Spotify right now... Please try again!"}
 
       {:error, error} ->
         {:error, "An error has occured."}
