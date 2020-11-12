@@ -45,7 +45,7 @@ defmodule Beepbopskeet.MixProject do
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 1.0"},
       {:httpoison, "~> 1.6"},
-      {:poison, "~> 4.0"},
+      {:poison, "~> 4.0", override: true},
       {:bamboo, "~> 1.5"},
       {:mailgun, "~> 0.1.2"},
       {:distillery, "~> 2.1"},
