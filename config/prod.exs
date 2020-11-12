@@ -25,6 +25,15 @@ config :beepbopskeet, BeepBopSkeet.Repo,
   ssl: true,
   pool_size: "${POOL_SIZE}"
 
+# Configure mailgun adapter
+config :beepbopskeet, Beepbopskeet.Mailer,
+  adapter: Bamboo.MailgunAdapter,
+  api_key: System.get_env("MAILGUN_API_KEY"),
+  domain: System.get_env("MAILGUN_DOMAIN"),
+  hackney_opts: [
+    recv_timeout: :timer.minutes(1)
+  ]
+
 # Do not print debug messages in production
 config :logger, level: :info
 

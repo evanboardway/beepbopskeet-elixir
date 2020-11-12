@@ -25,6 +25,7 @@ defmodule BeepbopskeetWeb.Helpers.Spotify do
           |> Enum.map(fn {k, v} -> {String.to_atom(k), v} end)
           |> Enum.at(0)
           |> elem(1)
+
         {:ok, token}
 
       {:ok, %HTTPoison.Response{body: body, status_code: 400}} ->
