@@ -53,22 +53,6 @@
 
     <button class="socials-link bg-purple-200 w-3/4">
       <img src="<%= Routes.static_path(@conn, "/images/icons/shop.png") %>"></img>
-      <a href="http://shopgoldenant.com/?aff=2">
-        <h1 class="tracking-widest text-2xl">SHOP GOLDEN ANT MERCH</h1>
-      </a>
-    </button>
-    <div class="socials-link w-3/4 flex flex-row justify-start items-center"></div>
-
-    <button class="socials-link bg-purple-200 w-3/4">
-      <img src="<%= Routes.static_path(@conn, "/images/icons/shop.png") %>"></img>
-      <a href="https://www.etsy.com/listing/859375834/haikyuu-spotify-playlist-phone-case?ref=shop_home_active_1&crt=1">
-        <h1 class="tracking-widest text-2xl">PLAYLIST PHONE CASES</h1>
-      </a>
-    </button>
-    <div class="socials-link w-3/4 flex flex-row justify-start items-center"></div>
-
-    <button class="socials-link bg-purple-200 w-3/4">
-      <img src="<%= Routes.static_path(@conn, "/images/icons/shop.png") %>"></img>
       <a href="https://mikasenbeigakuen.thinkific.com/?ref=f50ebf">
         <h1 class="tracking-widest text-2xl">LEARN JAPANESE!</h1>
       </a>
@@ -77,45 +61,7 @@
       <h1 class="tracking-widest text-2xl">USE CODE "BEEPBOP" FOR 15% OFF</h1>
     </div>
 
-    <button class="socials-link bg-purple-200 w-3/4">
-      <img src="<%= Routes.static_path(@conn, "/images/icons/shop.png") %>"></img>
-      <a href="https://mascot.app.link/QK1Zq5RWfab">
-        <h1 class="tracking-widest text-2xl">MASCOT</h1>
-      </a>
-    </button>
-    <div class="socials-link w-3/4">
-      <h1 class="tracking-widest text-2xl">JOIN MY MASCOT CHAT!</h1>
-    </div>
 
-    <button class="socials-link bg-purple-200 w-3/4">
-      <img src="<%= Routes.static_path(@conn, "/images/icons/shop.png") %>"></img>
-      <a href="https://ko-fi.com/beepbopskeet">
-        <h1 class="tracking-widest text-2xl">SHOP THE COLDEST WATER</h1>
-      </a>
-    </button>
-    <div class="socials-link w-3/4">
-      <h1 class="tracking-widest text-2xl">USE CODE "BEEP" FOR 10% OFF</h1>
-    </div>
-
-    <button class="socials-link bg-purple-200 w-3/4">
-      <img src="<%= Routes.static_path(@conn, "/images/icons/shop.png") %>"></img>
-      <a href="https://ko-fi.com/beepbopskeet">
-        <h1 class="tracking-widest text-2xl">MISAKY TOKYO-JAPANESE SWEETS</h1>
-      </a>
-    </button>
-    <div class="socials-link w-3/4">
-      <h1 class="tracking-widest text-2xl">USE CODE "CARMEN" FOR 5% OFF</h1>
-    </div>
-
-    <button class="socials-link bg-purple-200 w-3/4">
-      <img src="<%= Routes.static_path(@conn, "/images/icons/shop.png") %>"></img>
-      <a href="https://ko-fi.com/beepbopskeet">
-        <h1 class="tracking-widest text-2xl">TTDEYE COLORED CONTACTS</h1>
-      </a>
-    </button>
-    <div class="socials-link w-3/4">
-      <h1 class="tracking-widest text-2xl">USE CODE "BEEPBOPSKEET" FOR 10% OFF</h1>
-    </div>
 
   </div>
 
