@@ -17,7 +17,7 @@ defmodule BeepbopskeetWeb.SessionController do
         conn
         |> put_session(:current_user_id, user.id)
         |> put_flash(:info, "Signed in successfully.")
-        |> redirect(to: Routes.page_path(conn, :admin_portal)) #this should be the admin page.
+        |> redirect(to: Routes.admin_path(conn, :index)) #this should be the admin page.
 
       {:error, _} ->
         conn

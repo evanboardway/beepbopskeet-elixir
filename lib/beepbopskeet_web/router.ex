@@ -38,7 +38,8 @@ defmodule BeepbopskeetWeb.Router do
   scope "/", BeepbopskeetWeb do
     pipe_through [:browser, :admin]
 
-    get "/admin", PageController, :admin_portal
+    get "/admin", AdminController, :index
+
     delete "/submissions/:id", SubmissionController, :delete
     patch "/submissions/:id", SubmissionController, :update
     put "/submissions/:id", SubmissionController, :update

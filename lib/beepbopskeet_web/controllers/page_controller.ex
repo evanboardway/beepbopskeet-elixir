@@ -10,16 +10,6 @@ defmodule BeepbopskeetWeb.PageController do
     render(conn, "index.html")
   end
 
-  def admin_portal(conn, _params) do
-    if signed_in?(conn) do
-      render(conn, "admin.html")
-    else
-      conn
-      |> put_flash(:info, "You must be authenticated to access this feature.")
-      |> redirect(to: Routes.session_path(conn, :new))
-    end
-  end
-
   def spotify_playlists(conn, _params) do
     data = get_playlists()
 

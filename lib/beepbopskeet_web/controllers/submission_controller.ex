@@ -43,13 +43,13 @@ defmodule BeepbopskeetWeb.SubmissionController do
       {:error, error} ->
         conn
         |> put_flash(:info, error)
-        |> redirect(to: Routes.page_path(conn, :admin_portal))
+        |> redirect(to: Routes.admin_path(conn, :index))
 
     end
 
     conn
     |> put_flash(:info, "Added to #{status} submissions.")
-    |> redirect(to: Routes.page_path(conn, :admin_portal))
+    |> redirect(to: Routes.admin_path(conn, :index))
   end
 
   def create(conn, %{"submission" => submission_params, "playlist_id" => playlist_id}) do
@@ -74,7 +74,7 @@ defmodule BeepbopskeetWeb.SubmissionController do
 
     conn
     |> put_flash(:info, "Submission deleted successfully.")
-    |> redirect(to: Routes.page_path(conn, :admin_portal))
+    |> redirect(to: Routes.admin_path(conn, :index))
   end
 
 

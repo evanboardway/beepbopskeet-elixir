@@ -8,6 +8,7 @@ defmodule BeepbopskeetWeb.Plug.Admin do
   def call(conn, _opts) do
     user_id = Plug.Conn.get_session(conn, :current_user_id)
 
+    IO.inspect(user_id)
     case user_id do
       nil ->
         conn
