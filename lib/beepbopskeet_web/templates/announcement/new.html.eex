@@ -1,0 +1,9 @@
+<div class="container max-w-screen-lg flex flex-col w-4/5 items-center bg-white shadow-sm h-screen">
+
+
+<h1>Set Announcement</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.announcement_path(@conn, :create)) %>
+
+
+</div>

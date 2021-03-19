@@ -17,3 +17,10 @@ Accounts.create_user(
     is_admin: true
   }
 )
+
+alias Beepbopskeet.Admin
+Admin.create_announcement(
+  %{
+    body: "Change Me"
+  }
+)

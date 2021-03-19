@@ -1,3 +1,18 @@
-<div class="w-full bg-gray-900 h-64">
+<div class="w-full flex flex-row justify-evenly items-center flex-wrap bg-gray-900 p-10">
+
+    <div class="flex flex-row">
+        <div class="w-24 mr-5"><img class="rounded-full" src="<%= Routes.static_path(@conn, "/images/footer.jpg") %>"></img></div>
+        <div class="flex flex-col">
+            <h2 class="tracking-widest text-xl text-white my-1">CARMEN</h2>
+            <h2 class="tracking-widest text-xl text-white my-1">SHE / HER</h2>
+            <h2 class="tracking-widest text-xl text-white my-1">22 Y/O</h2>
+        </div>
+    </div>
+
+    <div class="flex flex-col">
+        <h1 class="tracking-widest text-lg text-white my-4">CONTACT: BEEPBOPSKEETCONTACT@GMAIL.COM</h1>
+        <h1 class="tracking-widest text-sm text-white my-4">&copy; 2021 beepbopskeet</h1>
+    </div>
+
 
 </div>

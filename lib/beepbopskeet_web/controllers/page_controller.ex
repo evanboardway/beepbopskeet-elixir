@@ -6,18 +6,19 @@ defmodule BeepbopskeetWeb.PageController do
   import BeepbopskeetWeb.Helpers.Auth
   import BeepbopskeetWeb.Helpers.Spotify
 
-  def index(conn, _params) do
-    render(conn, "index.html")
-  end
+  alias Beepbopskeet.Admin
+  alias Beepbopskeet.Admin.Card
+  alias Beepbopskeet.Admin.Announcement
 
-  def admin_portal(conn, _params) do
-    if signed_in?(conn) do
-      render(conn, "admin.html")
-    else
-      conn
-      |> put_flash(:info, "You must be authenticated to access this feature.")
-      |> redirect(to: Routes.session_path(conn, :new))
-    end
+  def index(conn, _params) do
+    general_cards = Admin.list_general()
+    socials_cards = Admin.list_socials()
+
+    Admin.list_announcements()
+    |> IO.inspect()
+
+    announcement =  Admin.get_announcement!(1).body
+    render(conn, "index.html", general_cards: general_cards, socials_cards: socials_cards, announcement: announcement)
   end
 
   def spotify_playlists(conn, _params) do
