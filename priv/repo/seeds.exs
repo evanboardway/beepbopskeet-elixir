@@ -18,9 +18,9 @@ Accounts.create_user(
   }
 )
 
-alias Beepbopskeet.Admin
-Admin.create_announcement(
-  %{
-    body: "Change Me"
-  }
-)
+# alias Beepbopskeet.Admin
+# Admin.create_announcement(
+#   %{
+#     body: "Change Me"
+#   }
+# )

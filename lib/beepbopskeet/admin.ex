@@ -149,7 +149,13 @@ defmodule Beepbopskeet.Admin do
       ** (Ecto.NoResultsError)
 
   """
-  def get_announcement!(id), do: Repo.get!(Announcement, id)
+  def get_announcement!(id) do
+    case Repo.all(Announcement) do
+      [] -> create_announcement(%{body: "Change Me"})
+      _ -> nil
+    end
+    Repo.get!(Announcement, id)
+  end
 
   @doc """
   Creates a announcement.

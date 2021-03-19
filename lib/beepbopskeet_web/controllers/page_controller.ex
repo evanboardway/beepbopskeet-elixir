@@ -13,11 +13,8 @@ defmodule BeepbopskeetWeb.PageController do
   def index(conn, _params) do
     general_cards = Admin.list_general()
     socials_cards = Admin.list_socials()
+    announcement = Admin.get_announcement!(1).body
 
-    Admin.list_announcements()
-    |> IO.inspect()
-
-    announcement =  Admin.get_announcement!(1).body
     render(conn, "index.html", general_cards: general_cards, socials_cards: socials_cards, announcement: announcement)
   end
 
