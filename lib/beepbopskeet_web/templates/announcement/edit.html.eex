@@ -1,0 +1,10 @@
+<div class="container max-w-screen-lg flex flex-col items-center bg-white shadow-sm h-screen">
+
+  <h1 class="tracking-widest text-gray-900 text-6xl py-10 flex flex-row justify-center">SET ANNOUNCEMENT</h1>
+
+
+  <%= render "form.html", Map.put(assigns, :action, Routes.announcement_path(@conn, :update, @announcement)) %>
+
+  <span class="my-10"><%= link "CANCEL", class: "bg-red-200 py-4 px-10 rounded-lg", to: Routes.card_path(@conn, :index) %></span>
+
+</div>

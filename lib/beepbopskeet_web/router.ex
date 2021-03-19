@@ -41,6 +41,9 @@ defmodule BeepbopskeetWeb.Router do
     get "/admin", AdminController, :index
 
     resources "/cards", CardController
+    resources "/announcement", AnnouncementController
+    # resources "/announcement", AnnouncementController, only: [:update]
+
 
     delete "/submissions/:id", SubmissionController, :delete
     patch "/submissions/:id", SubmissionController, :update

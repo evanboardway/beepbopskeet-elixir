@@ -8,11 +8,17 @@ defmodule BeepbopskeetWeb.PageController do
 
   alias Beepbopskeet.Admin
   alias Beepbopskeet.Admin.Card
+  alias Beepbopskeet.Admin.Announcement
 
   def index(conn, _params) do
     general_cards = Admin.list_general()
     socials_cards = Admin.list_socials()
-    render(conn, "index.html", general_cards: general_cards, socials_cards: socials_cards)
+
+    Admin.list_announcements()
+    |> IO.inspect()
+
+    announcement =  Admin.get_announcement!(1).body
+    render(conn, "index.html", general_cards: general_cards, socials_cards: socials_cards, announcement: announcement)
   end
 
   def spotify_playlists(conn, _params) do
