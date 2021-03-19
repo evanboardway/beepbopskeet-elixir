@@ -1,0 +1,14 @@
+<div class="container max-w-screen-lg flex flex-col items-center bg-white shadow-sm h-screen">
+
+    <h1 class="tracking-widest text-gray-900 text-6xl py-10 flex flex-row justify-center">EDIT CARD</h1>
+
+    <div class="socials-link bg-blue-200 w-4/5 my-5 shadow-lg rounded-md">
+        <span class="material-icons mx-2"><%= @card.material_icon_title %></span>
+          <h1 class="tracking-widest text-2xl"><%= @card.title %></h1>
+        </a>
+    </div>
+
+    <%= render "form.html", Map.put(assigns, :action, Routes.card_path(@conn, :update, @card)) %>
+
+    <span class="m-10"><%= link "CANCEL", class: "bg-red-200 py-4 px-10 rounded-lg", to: Routes.card_path(@conn, :index) %></span>
+</div>

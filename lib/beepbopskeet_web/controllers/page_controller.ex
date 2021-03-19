@@ -6,8 +6,13 @@ defmodule BeepbopskeetWeb.PageController do
   import BeepbopskeetWeb.Helpers.Auth
   import BeepbopskeetWeb.Helpers.Spotify
 
+  alias Beepbopskeet.Admin
+  alias Beepbopskeet.Admin.Card
+
   def index(conn, _params) do
-    render(conn, "index.html")
+    general_cards = Admin.list_general()
+    socials_cards = Admin.list_socials()
+    render(conn, "index.html", general_cards: general_cards, socials_cards: socials_cards)
   end
 
   def spotify_playlists(conn, _params) do

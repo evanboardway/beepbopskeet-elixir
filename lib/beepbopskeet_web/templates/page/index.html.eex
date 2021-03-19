@@ -1,7 +1,7 @@
 <div class="container max-w-screen-lg bg-white shadow-sm">
 
   <div class="flex flex-col items-center justify-center h-screen motion-safe:animate-fadeIn mx-6">
-    <img class="h-64 rounded-full mb-16" src="<%= Routes.static_path(@conn, "/images/anime_avatar.JPG") %>"></img>
+    <img class="h-64 rounded-full mb-16" src="<%= Routes.static_path(@conn, "/images/personal.JPG") %>"></img>
     <h1 class="tracking-widest text-6xl mb-20">BEEPBOPSKEET</h1>
     <hr class="w-3/5 my-2">
     <h2 class="tracking-widest text-center text-6xl my-20 mx-6">Anime Fan + Content Creator</h2>
@@ -9,51 +9,34 @@
 
   <div class="flex flex-col items-center my-24 py-24 bg-gray-100">
 
-    <button class="socials-link bg-gray-900 my-5 w-3/4">
-      <a href="https://linktr.ee/blacklivesmatter">
-        <h1 class="tracking-widest text-2xl text-white">BLM LINK TREE</h1>
-      </a>
-    </button>
+    <%= for card <- @general_cards do %>
+      <button class="socials-link bg-blue-200 my-5 w-3/4">
+        <span class="material-icons mx-2"><%= card.material_icon_title %></span>
+        <a href="<%= card.link %>" target="_blank">
+          <h1 class="tracking-widest text-2xl"><%= card.title %></h1>
+        </a>
+      </button>
+    <% end %>
 
-    <button class="socials-link bg-blue-200 my-5 w-3/4">
-      <img src="<%= Routes.static_path(@conn, "/images/icons/kofi.png") %>"></img>
-      <a href="https://ko-fi.com/beepbopskeet">
-        <h1 class="tracking-widest text-2xl">SUPPORT ME ON KO-FI</h1>
-      </a>
-    </button>
 
-    <button class="socials-link bg-blue-200 my-5 w-3/4" href="">
-      <img src="<%= Routes.static_path(@conn, "/images/icons/amazon-icon-logo.png") %>"></img>
-      <a href="https://www.amazon.com/hz/wishlist/ls/AV3GQV649N4M?ref_=wl_share">
-        <h1 class="tracking-widest text-2xl">MY AMAZON WISHLIST</h1>
-      </a>
-    </button>
-
-    <button class="socials-link bg-blue-200 my-5 w-3/4" href="">
-      <img src="<%= Routes.static_path(@conn, "/images/icons/youtube-icon.png") %>"></img>
-      <a href="https://www.youtube.com/channel/UCrDnHHlWsRSU_-3uJjSHn5Q">
-        <h1 class="tracking-widest text-2xl">YOUTUBE CHANNEL</h1>
-      </a>
-    </button>
   </div>
 
 
-  <div class="flex flex-col h-screen items-center justify-center">
-    Nothing here
+  <div class="flex flex-col h-300 items-center justify-center">
+    Socials?
   </div>
 
 
   <div class="discounts">
 
-    <button class="socials-link bg-purple-200 w-3/4">
-      <img src="<%= Routes.static_path(@conn, "/images/icons/shop.png") %>"></img>
-      <a href="https://mikasenbeigakuen.thinkific.com/?ref=f50ebf">
-        <h1 class="tracking-widest text-2xl">LEARN JAPANESE!</h1>
-      </a>
-    </button>
-    <div class="socials-link w-3/4">
-      <h1 class="tracking-widest text-2xl">USE CODE "BEEPBOP" FOR 15% OFF</h1>
-    </div>
+    <%= for card <- @socials_cards do %>
+      <button class="socials-link bg-purple-200 my-5 w-3/4">
+        <span class="material-icons mx-2"><%= card.material_icon_title %></span>
+        <a href="<%= card.link %>" target="_blank">
+          <h1 class="tracking-widest text-2xl"><%= card.title %></h1>
+        </a>
+      </button>
+    <% end %>
 
 
 

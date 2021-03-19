@@ -1,0 +1,46 @@
+<div class="bg-gray-100 rounded-lg shadow-md p-10 w-4/5">
+  <%= form_for @changeset, @action, fn f -> %>
+    <%= if @changeset.action do %>
+      <div class="alert alert-danger">
+        <p>Oops, something went wrong! Please check the errors below.</p>
+      </div>
+    <% end %>
+
+    <div class="flex flex-row flex-wrap m-5 justify-between">
+      <div class="flex flex-col m-5 justify-center">
+        <h1 class="tracking-wide">TITLE</h1>
+        <%= text_input f, :title %>
+        <%= error_tag f, :title %>
+      </div>
+
+      <div class="flex flex-col m-5 justify-center items-start">
+        <h1 class="tracking-wide">LINK</h1>
+        <%= text_input f, :link %>
+        <%= error_tag f, :link %>
+      </div>
+
+      <div class="flex flex-col m-5 justify-center items-start">
+        <h1 class="tracking-wide">LOCATION</h1>
+        <%= select f, :category, ["SOCIALS", "GENERAL"] %>
+        <%= error_tag f, :category %>
+      </div>
+
+      <div class="flex flex-col m-5 justify-center items-start">
+        <h1 class="tracking-wide">ICON</h1>
+        <%= text_input f, :material_icon_title %>
+        <%= error_tag f, :material_icon_title %>
+      </div>
+    </div>
+
+    <span class="text-gray-600 my-3">
+      Title represents the title of your card. Link will determine where the user will be taken upon clicking.
+      Category determines whether a card is in the GENERAL or SOCIALS section. Note: ICON must be the text value for
+      any current Material Design Icon.
+    </span>
+
+    <div class="flex flex-row justify-center my-4">
+      <button><%= submit "SAVE", class: "bg-blue-200 py-2 px-10 rounded-lg" %></button>
+    </div>
+
+  <% end %>
+</div>

@@ -1,8 +1,9 @@
-<%= if signed_in?(@conn) do %>
+<%= if is_admin?(@conn) do %>
   <div class="flex flex-row justify-evenly items-center bg-red-400 py-3">
     <span class="text-xl text-gray-900 tracking-widest mx-5 hidden md:block">SIGNED IN AS ADMIN</span>
     <div class="flex flex-row">
-      <div class="bg-red-500 md:hover:bg-red-300 mx-2 rounded-lg"><a href="/admin" class="my-2 md:inline-block md:my-0 text-grey-darkest mx-2 md:mx-10 no-underline tracking-widest text-xl">ADMIN PORTAL</a></div>
+      <div class="bg-red-500 md:hover:bg-red-300 mx-2 rounded-lg"><a href="/cards" class="my-2 md:inline-block md:my-0 text-grey-darkest mx-2 md:mx-10 no-underline tracking-widest text-xl">CARDS</a></div>
+      <div class="bg-red-500 md:hover:bg-red-300 mx-2 rounded-lg"><a href="/admin" class="my-2 md:inline-block md:my-0 text-grey-darkest mx-2 md:mx-10 no-underline tracking-widest text-xl">PLAYLISTING</a></div>
       <div class="bg-red-500 md:hover:bg-red-300 mx-2 rounded-lg"><span class="text-xl text-gray-900 tracking-widest mx-5"><%= link "SIGN OUT", to: Routes.session_path(@conn, :delete), method: :delete %></span></div>
     </div>
   </div>

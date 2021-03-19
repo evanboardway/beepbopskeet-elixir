@@ -1,0 +1,45 @@
+<div class="container max-w-screen-lg flex flex-col items-center bg-white shadow-sm h-screen">
+
+  <div class="flex flex-row flex-wrap items-center justify-between bg-gray-200 rounded-lg py-4 w-4/5 mt-12 mb-2">
+    <span class="text-gray-800 text-xl tracking-wide font-bold mx-4 hidden md:block">EDIT MAIN PAGE</span>
+    <div class="flex flex-row mx-auto md:mx-0">
+      <button class="text-gray-800 bg-gray-300 px-2 py-1 rounded-md mx-4 text-xl tracking-wide" onclick="showIncoming()">CHANGE ANNOUNCEMENT</button>
+      <button class="text-gray-800 bg-gray-300 px-2 py-1 rounded-md mx-4 text-xl tracking-wide"><%= link "NEW CARD", to: Routes.card_path(@conn, :new) %></button>
+    </div>
+  </div>
+
+  <h1 class="tracking-widest text-gray-900 text-6xl py-10 flex flex-row justify-center">GENERAL CARDS</h1>
+
+  <%= for card <- filter_cards(@cards, "GENERAL") do %>
+    <div class="flex flex-col w-4/5 my-5">
+      <div class="socials-link bg-blue-200">
+        <span class="material-icons mx-2"><%= card.material_icon_title %></span>
+          <h1 class="tracking-widest text-2xl"><%= card.title %></h1>
+        </a>
+      </div>
+      <div class="flex flex-row flex-wrap justify-between bg-red-100">
+          <span class="w-1/2 py-6 bg-green-300 text-center text-green-700 hover:bg-green-500 hover:text-green-900 tracking-widest"><%= link "EDIT", to: Routes.card_path(@conn, :edit, card) %></span>
+          <span class="w-1/2 py-6 bg-red-300 text-center text-red-700 hover:bg-red-500 hover:text-red-900 tracking-widest"><%= link "DELETE", to: Routes.card_path(@conn, :delete, card), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </div>
+    </div>
+  <% end %>
+
+  <h1 class="tracking-widest text-gray-900 text-6xl py-10 flex flex-row justify-center">SOCIAL CARDS</h1>
+
+  <%= for card <- filter_cards(@cards, "SOCIALS") do %>
+    <div class="flex flex-col w-4/5 my-5">
+      <div class="socials-link bg-purple-200">
+        <span class="material-icons mx-2"><%= card.material_icon_title %></span>
+          <h1 class="tracking-widest text-2xl"><%= card.title %></h1>
+        </a>
+      </div>
+      <div class="flex flex-row flex-wrap justify-between bg-red-100">
+          <span class="w-1/2 py-6 bg-green-300 text-center text-green-700 hover:bg-green-500 hover:text-green-900 tracking-widest"><%= link "EDIT", to: Routes.card_path(@conn, :edit, card) %></span>
+          <span class="w-1/2 py-6 bg-red-300 text-center text-red-700 hover:bg-red-500 hover:text-red-900 tracking-widest"><%= link "DELETE", to: Routes.card_path(@conn, :delete, card), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </div>
+    </div>
+  <% end %>
+
+
+
+</div>
