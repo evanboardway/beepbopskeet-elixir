@@ -18,8 +18,4 @@ defmodule Beepbopskeet.Admin.Card do
     |> validate_required([:title, :link, :category])
   end
 
-
-  def validate_category(cat) do
-    cat == "SOCIALS" || cat == "GENERAL"
-  end
 end

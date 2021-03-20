@@ -1,4 +1,4 @@
-<div class="container h-screen max-w-screen-lg bg-white shadow-sm">
+<div class="container max-w-screen-lg bg-white shadow-sm">
     <div class="flex flex-col items-center">
     <%# top nav for filter %>
 

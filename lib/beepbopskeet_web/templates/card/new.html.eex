@@ -1,4 +1,4 @@
-<div class="container max-w-screen-lg flex flex-col items-center bg-white shadow-sm h-screen">
+<div class="container max-w-screen-lg flex flex-col items-center bg-white shadow-sm">
 
     <h1 class="tracking-widest text-gray-900 text-6xl py-10 flex flex-row justify-center">NEW CARD</h1>
 

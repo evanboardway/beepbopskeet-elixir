@@ -6,8 +6,7 @@ defmodule BeepbopskeetWeb.CardController do
 
   def index(conn, _params) do
     cards = Admin.list_cards()
-    announcement = Admin.get_announcement!(1).body
-    render(conn, "index.html", cards: cards, announcement: announcement)
+    render(conn, "index.html", cards: cards)
   end
 
   def new(conn, _params) do
