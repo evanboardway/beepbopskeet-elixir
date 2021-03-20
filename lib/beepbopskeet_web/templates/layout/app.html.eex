@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <%= csrf_meta_tag() %>
   </head>
-  <body>
+  <body id="page-container">
     <%= render "navigation.html", conn: @conn %>
     <main role="main" class="bg-gradient-to-r from-teal-100 via-white to-blue-100">
       <p class="alert bg-teal-200 text-gray-900 text-center" role="alert"><%= get_flash(@conn, :info) %></p>
@@ -20,7 +20,7 @@
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
-  <footer>
+  <footer id="footer">
     <%= render "footer.html", conn: @conn %>
   </footer>
 </html>
