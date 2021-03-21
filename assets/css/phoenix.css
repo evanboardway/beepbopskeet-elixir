@@ -50,7 +50,21 @@ button:hover {
 .container{
   margin: 0 auto;
   padding-bottom: 50px;
+  min-height: 100vh;
   position: relative;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+  display: block;
+  padding-bottom: 100px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 select {
@@ -147,18 +161,4 @@ header section :last-child {
     flex-basis: 527px;
     margin: 2rem 1rem;
   }
-}
-
-
-#page-container {
-  position: relative;
-  min-height: 100vh;
-  display: block;
-  padding-bottom: 100px;
-}
-
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
 }

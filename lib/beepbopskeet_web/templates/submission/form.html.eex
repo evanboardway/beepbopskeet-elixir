@@ -20,11 +20,15 @@
       <%= text_input f, :email, class: "rounded-lg py-2 my-4" %>
       <%= error_tag f, :email %>
 
-      <h1 class="tracking-wide">SPOTIFY LINK TO SONG</h1>
+      <h1 class="tracking-wide">SPOTIFY LINK</h1>
       <%= text_input f, :url, class: "rounded-lg py-2 my-4" %>
       <%= error_tag f, :url %>
 
-      <h1 class="tracking-wide my-4">RELEASE DATE - MM/DD/YYYY</h1>
+      <h1 class="tracking-wide">SPOTIFY URI</h1>
+      <%= text_input f, :uri, class: "rounded-lg py-2 my-4" %>
+      <%= error_tag f, :uri %>
+
+      <h1 class="tracking-wide my-4">RELEASE DATE - DD/MM/YYYY</h1>
       <%= text_input f, :release_date, class: "rounded-lg py-2 my-4" %>
       <%= error_tag f, :release_date %>
 

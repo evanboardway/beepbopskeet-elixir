@@ -64,6 +64,14 @@ defmodule Beepbopskeet.Playlists do
   """
   def get_submission!(id), do: Repo.get!(Submission, id)
 
+  def get_submission_by_uri!(attr) do
+    Repo.all(
+      from s in "submissions",
+        where: s.uri == ^attr,
+        select: %{uri: s.uri, playlist_id: s.playlist_id}
+    )
+  end
+
   @doc """
   Creates a submission.
 
